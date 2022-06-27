@@ -1,16 +1,20 @@
 <template>
     <div id="app">
         <NavBar />
+        <FormMain></FormMain>
+
     </div>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue'
+import FormMain from './components/FormMain.vue'
 
 export default {
     name: 'App',
     components: {
-        NavBar
+        NavBar,
+        FormMain
     }
 }
 </script>
