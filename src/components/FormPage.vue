@@ -1,9 +1,13 @@
 <template>
     <div class="form-page">
         <div v-for="form in forms" :key="form.key">
-            <div v-if="currentStep === form.key">{{ form.name }}</div>
+            <div v-if="currentStep === form.key">
+                <div class="form-name">{{ form.name }}</div>
+                <WrapInput :infos="form.infos" :checkBoxes="form.checkBoxes" :photoBoxes="form.photoBoxes"
+                    :inputBoxes="form.inputBoxes" />
+            </div>
         </div>
-        <WrapInput />
+
     </div>
 </template>
 
@@ -21,4 +25,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.form-name {
+    color: red;
+}
 </style>

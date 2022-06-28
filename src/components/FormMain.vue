@@ -1,8 +1,6 @@
 <template>
     <div class="form-main">
-        <p>
-            雇用契約について
-        </p>
+        <p>雇用契約について</p>
         <StepBar />
         <div class="deadline-date">
             <img class="icon-calendar" src="../assets/calendar.png">
@@ -42,8 +40,6 @@ export default {
 
 .deadline-date {
     position: relative;
-
-
 }
 
 .deadline-date p {

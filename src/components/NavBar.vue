@@ -1,6 +1,6 @@
 <template>
     <div class="nav-bar">
-        <img src="../assets/logo.png">
+        <a href="/"><img src="../assets/logo.png"></a>
         <ul>
             <li class="under-line active">入社手続き</li>
             <li>ヘルプ</li>
