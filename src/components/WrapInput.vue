@@ -2,8 +2,9 @@
     <div class="wrap-input">
         <InfoBox :infos="infos" />
         <UploadPhotoBox :photoBoxes="photoBoxes" />
-        <TextInputBox :inputBoxes="inputBoxes" />
+        <TextInputBox :textInputBoxes="textInputBoxes" />
         <CheckboxInputBox :checkBoxes="checkBoxes" />
+        <RadioBox :radioBoxes="radioBoxes" />
 
     </div>
 </template>
@@ -14,6 +15,7 @@ import InfoBox from './WrapInput/InfoBox.vue'
 import TextInputBox from './WrapInput/TextInputBox.vue'
 import CheckboxInputBox from './WrapInput/CheckboxInputBox.vue'
 import UploadPhotoBox from './WrapInput/uploadPhotoBox.vue'
+import RadioBox from './WrapInput/RadioBox.vue'
 
 export default {
     name: "WrapInput",
@@ -21,10 +23,11 @@ export default {
         infos: Array,
         checkBoxes: Array,
         photoBoxes: Array,
-        inputBoxes: Array,
+        textInputBoxes: Array,
+        radioBoxes: Array,
     },
     // computed: mapState(["forms", "currentStep"]),
-    components: { InfoBox, TextInputBox, CheckboxInputBox, UploadPhotoBox }
+    components: { InfoBox, TextInputBox, CheckboxInputBox, UploadPhotoBox, RadioBox }
 }
 </script>
 
