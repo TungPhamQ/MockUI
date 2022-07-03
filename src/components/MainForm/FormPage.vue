@@ -9,6 +9,7 @@
                     :photoBoxes="form.photoBoxes"
                     :textInputBoxes="form.textInputBoxes"
                     :radioBoxes="form.radioBoxes"
+                    :dateTextBox="form.dateTextBox"
                 />
             </div>
         </div>
@@ -17,19 +18,29 @@
 
 <script>
 import { mapState } from "vuex";
-import WrapInput from "./WrapInput.vue";
+import WrapInput from "../FormPage/WrapInput.vue";
+
+import { form1 } from "../FormPage/form-1.js";
+import { form2 } from "../FormPage/form-2.js";
+import { form3 } from "../FormPage/form-3.js";
 
 export default {
     name: "FormPage",
     props: {},
-    computed: mapState(["forms", "currentStep"]),
+    computed: mapState(["currentStep"]),
     components: { WrapInput },
+    data() {
+        return {
+            forms: [form1, form2, form3],
+        };
+    },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .form-name {
+    /* testing */
     color: red;
 }
 </style>

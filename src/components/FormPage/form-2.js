@@ -1,4 +1,4 @@
-export const Form2 = {
+export const form2 = {
   name: "FORM 2",
   key: 2,
   photoBoxes: [
@@ -70,17 +70,41 @@ export const Form2 = {
   ],
   radioBoxes: [
     {
-      name: "this is radio box",
+      name: "性別",
       key: 1,
       required: true,
       options: [
         {
-          id: "radio 1",
-          value: "this is value radio 1",
+          id: "男性",
+          value: "男性",
         },
         {
-          id: "radio 2",
-          value: "this is value radio 2",
+          id: "女性",
+          value: "女性",
+        },
+      ],
+    },
+  ],
+  dateTextBox: [
+    {
+      name: "生年月日",
+      key: 1,
+      required: true,
+      values: [
+        {
+          name: "年",
+          value: "",
+          placeholder: "西暦（半角）",
+        },
+        {
+          name: "月",
+          value: "",
+          placeholder: "半角",
+        },
+        {
+          name: "日",
+          value: "",
+          placeholder: "半角",
         },
       ],
     },
