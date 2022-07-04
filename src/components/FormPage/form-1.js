@@ -10,6 +10,7 @@ export const form1 = {
         {
           key: 1,
           value: "契約期間の定め：なし",
+          haveContainerBox: true,
         },
       ],
     },
@@ -21,14 +22,17 @@ export const form1 = {
         {
           key: 1,
           value: `事業所名\nテキストテキストテキストテキストテキスト`,
+          haveContainerBox: true,
         },
         {
           key: 2,
           value: `事業所在地 \nテキストテキストテキストテキストテキストテキスト`,
+          haveContainerBox: true,
         },
         {
           key: 3,
           value: "仕事内容 \nテキストテキストテキストテキストテキストテキスト",
+          haveContainerBox: true,
         },
       ],
     },
@@ -40,16 +44,19 @@ export const form1 = {
         {
           key: 1,
           value: `勤務区分\n固定勤務`,
+          haveContainerBox: true,
         },
         {
           key: 2,
           value:
             "勤務開始時間:09:00 勤務終了時間:18:00 休憩時間:120分 \n1週間の勤務日数 (1ヶ月平均 :5日 休日：土日祝日、年末年始",
+          haveContainerBox: true,
         },
         {
           key: 3,
           value:
             "所定労働時間 (1日) :8時間 所定労働時間 (1週間平均) :40時間\n労働時間選択区分 :40時間",
+          haveContainerBox: true,
         },
       ],
     },
@@ -61,14 +68,17 @@ export const form1 = {
         {
           key: 1,
           value: `等級\n1等級`,
+          haveContainerBox: true,
         },
         {
           key: 2,
           value: "基本給:200,000円 年齢給:200,000円 職能給:200,000円",
+          haveContainerBox: true,
         },
         {
           key: 3,
           value: "調整給:200,000円 調整給1:200,000円 調整給2:200,000円",
+          haveContainerBox: true,
         },
       ],
     },
@@ -80,28 +90,35 @@ export const form1 = {
         {
           key: 1,
           value: "ライフプラン手当：200,000円",
+          haveContainerBox: true,
         },
         {
           value:
             "役職手当：200,000円　役職手当2：200,000円　役職手当3：200,000円",
+          haveContainerBox: true,
         },
         {
           value:
             "資格手当：200,000円　住宅地域手当：200,000円　管理薬剤師手当：200,000円",
+          haveContainerBox: true,
         },
         {
           value:
             "職務手当：200,000円　職務手当2：200,000円　職務手当3：200,000円",
+          haveContainerBox: true,
         },
         {
           value:
             "ブロック手当：200,000円　フィールドマネジャー手当：200,000円　",
+          haveContainerBox: true,
         },
         {
           value: "単身赴任手当：200,000円　社員区分手当：200,000円　",
+          haveContainerBox: true,
         },
         {
           value: "合計支給額 \n200,000円 ",
+          haveContainerBox: true,
         },
       ],
     },
@@ -112,6 +129,7 @@ export const form1 = {
       content: [
         {
           value: `賃金締日：毎月末日 賃金支払日：当月25日`,
+          haveContainerBox: true,
         },
       ],
     },
@@ -122,12 +140,15 @@ export const form1 = {
       content: [
         {
           value: `昇給：あり 賞与：あり 退職金：あり`,
+          haveContainerBox: true,
         },
         {
           value: `健康保険：加入する 厚生年金保険：加入する 雇用保険：加入する`,
+          haveContainerBox: true,
         },
         {
           value: `定年制：あり 再雇用制度：ある 契約の更新：あり`,
+          haveContainerBox: true,
         },
       ],
     },
@@ -155,6 +176,7 @@ export const form1 = {
 ７  故意または重大な過失により貴社に損害を及ぼしたときは、その損害につい
     て賠償の責任を負います。
 `,
+          haveContainerBox: true,
         },
       ],
     },

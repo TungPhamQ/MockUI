@@ -1,11 +1,32 @@
 <template>
     <div class="wrap-input">
-        <InfoBox :infos="infos" />
-        <UploadPhotoBox :photoBoxes="photoBoxes" />
-        <TextInputBox :textInputBoxes="textInputBoxes" />
-        <CheckboxInputBox :checkBoxes="checkBoxes" />
-        <RadioBox :radioBoxes="radioBoxes" />
-        <DateTextBox :dateTextBox="dateTextBox" />
+        {{ form }}
+        <div v-for="(item, index) in form" :key="index">
+            <!-- <InfoBox :infos="infos" v-if="name === 'infos'" />
+            <UploadPhotoBox
+                :photoBoxes="photoBoxes"
+                v-if="name === 'photoBoxes'"
+            />
+            <TextInputBox
+                :textInputBoxes="textInputBoxes"
+                v-if="name === 'textInputBoxes'"
+            />
+            <CheckboxInputBox
+                :checkBoxes="checkBoxes"
+                v-if="name === 'checkBoxes'"
+            />
+            <RadioBox :radioBoxes="radioBoxes" v-if="name === 'radioBoxes'" />
+            <DateTextBox
+                :dateTextBox="dateTextBox"
+                v-if="name === 'dateTextBox'"
+            /> -->
+            <InfoBox :infos="infos" />
+            <UploadPhotoBox :photoBoxes="photoBoxes" />
+            <TextInputBox :textInputBoxes="textInputBoxes" />
+            <CheckboxInputBox :checkBoxes="checkBoxes" />
+            <RadioBox :radioBoxes="radioBoxes" />
+            <DateTextBox :dateTextBox="dateTextBox" />
+        </div>
     </div>
 </template>
 
@@ -27,6 +48,7 @@ export default {
         textInputBoxes: Array,
         radioBoxes: Array,
         dateTextBox: Array,
+        form: null,
     },
     // computed: mapState(["forms", "currentStep"]),
     components: {
@@ -94,7 +116,7 @@ export default {
     width: 100%;
     background: #f1f2f7;
     padding: 16px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
 }
 
 >>> .item-title {

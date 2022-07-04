@@ -5,6 +5,7 @@
             v-for="textInputBox in textInputBoxes"
             :key="textInputBox.key"
             class="input-box"
+            :class="{ 'different-box-class': textInputBox.isDifferentBox }"
         >
             <h4 class="title">{{ textInputBox.title }}</h4>
             <br />

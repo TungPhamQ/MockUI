@@ -1,6 +1,11 @@
 <template>
     <div class="date-text-box">
-        <div v-for="item in dateTextBox" :key="item.key" class="input-box">
+        <div
+            v-for="item in dateTextBox"
+            :key="item.key"
+            class="input-box"
+            :class="{ 'different-box-class': item.isDifferentBox }"
+        >
             <p v-if="item.required" class="required">必須</p>
             <h4 class="item-title">{{ item.name }}</h4>
             <div class="input-box-container">

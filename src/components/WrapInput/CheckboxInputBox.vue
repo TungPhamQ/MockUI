@@ -4,6 +4,7 @@
             class="checkbox-input-container input-box"
             v-for="checkBox in checkBoxes"
             :key="checkBox.key"
+            :class="{ 'different-box-class': checkBox.isDifferentBox }"
         >
             <p v-if="checkBox.required" class="required">必須</p>
             <h4 class="title">{{ checkBox.title }}</h4>

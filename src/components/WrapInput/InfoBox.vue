@@ -1,18 +1,19 @@
 <template>
     <div class="info-box">
         <div
-            v-for="info in infos"
-            :key="info.key"
+            v-for="item in infos"
+            :key="item.key"
             class="input-box"
-            :class="{ 'different-box-class': info.isDifferentBox }"
+            :class="{ 'different-box-class': item.isDifferentBox }"
         >
-            <h4 class="title">{{ info.title }}</h4>
+            <h4 class="title">{{ item.title }}</h4>
             <p
-                v-for="(value, index) in info.content"
+                v-for="(item, index) in item.content"
                 :key="index"
-                class="value-box content"
+                class="content"
+                :class="{ 'value-box': item.haveContainerBox }"
             >
-                {{ value.value }}
+                {{ item.value }}
             </p>
         </div>
     </div>

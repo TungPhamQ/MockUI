@@ -3,14 +3,16 @@
         <div v-for="form in forms" :key="form.key">
             <div v-if="currentStep === form.key">
                 <div class="form-name">{{ form.name }}</div>
-                <WrapInput
+                <!-- <WrapInput
                     :infos="form.infos"
                     :checkBoxes="form.checkBoxes"
                     :photoBoxes="form.photoBoxes"
                     :textInputBoxes="form.textInputBoxes"
                     :radioBoxes="form.radioBoxes"
                     :dateTextBox="form.dateTextBox"
-                />
+                    :form="form"
+                /> -->
+                <WrapInput :form="form" />
             </div>
         </div>
     </div>

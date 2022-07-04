@@ -4,6 +4,7 @@
             v-for="radioBox in radioBoxes"
             :key="radioBox.key"
             class="input-box"
+            :class="{ 'different-box-class': radioBox.isDifferentBox }"
         >
             <p v-if="radioBox.required" class="required">必須</p>
             {{ radioBox.name }}
