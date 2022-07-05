@@ -1,53 +1,46 @@
 <template>
     <div class="wrap-input">
-        {{ form }}
-        <div v-for="(item, index) in form" :key="index">
-            <!-- <InfoBox :infos="infos" v-if="name === 'infos'" />
-            <UploadPhotoBox
-                :photoBoxes="photoBoxes"
-                v-if="name === 'photoBoxes'"
-            />
-            <TextInputBox
-                :textInputBoxes="textInputBoxes"
-                v-if="name === 'textInputBoxes'"
-            />
-            <CheckboxInputBox
-                :checkBoxes="checkBoxes"
-                v-if="name === 'checkBoxes'"
-            />
-            <RadioBox :radioBoxes="radioBoxes" v-if="name === 'radioBoxes'" />
-            <DateTextBox
-                :dateTextBox="dateTextBox"
-                v-if="name === 'dateTextBox'"
-            /> -->
-            <InfoBox :infos="infos" />
-            <UploadPhotoBox :photoBoxes="photoBoxes" />
+        <div v-for="item in form" :key="item.key">
+            <div v-if="currentStep === item.key">
+                <div v-for="item in form" :key="item.key">
+                    <InfoBox :infos="item.infos" />
+                    <UploadPhotoBox :photoBoxes="item.photoBoxes" />
+                    <TextInputBox :textInputBoxes="item.textInputBoxes" />
+                    <CheckboxInputBox :checkBoxes="item.checkBoxes" />
+                    <RadioBox :radioBoxes="item.radioBoxes" />
+                    <DateTextBox :dateTextBox="item.dateTextBox" />
+                    <DateSelectBox :dateSelectBoxes="item.dateSelectBoxes" />
+                    <MultiSelection :multiSelect="item.multiSelect" />
+                </div>
+            </div>
+
+            <!-- <UploadPhotoBox :photoBoxes="photoBoxes" />
             <TextInputBox :textInputBoxes="textInputBoxes" />
             <CheckboxInputBox :checkBoxes="checkBoxes" />
             <RadioBox :radioBoxes="radioBoxes" />
-            <DateTextBox :dateTextBox="dateTextBox" />
+            <DateTextBox :dateTextBox="dateTextBox" /> -->
         </div>
     </div>
 </template>
 
 <script>
 // import { mapState } from 'vuex'
+import { mapState } from "vuex";
+
 import InfoBox from "../WrapInput/InfoBox.vue";
 import TextInputBox from "../WrapInput/TextInputBox.vue";
 import CheckboxInputBox from "../WrapInput/CheckboxInputBox.vue";
 import UploadPhotoBox from "../WrapInput/UploadPhotoBox.vue";
 import RadioBox from "../WrapInput/RadioBox.vue";
-import DateTextBox from "../WrapInput/dateTextBox.vue";
+import DateTextBox from "../WrapInput/DateTextBox.vue";
+import DateSelectBox from "../WrapInput/DateSelectBox.vue";
+import MultiSelection from "../WrapInput/MultiSelection.vue";
 
 export default {
     name: "WrapInput",
+    computed: mapState(["currentStep"]),
+
     props: {
-        infos: Array,
-        checkBoxes: Array,
-        photoBoxes: Array,
-        textInputBoxes: Array,
-        radioBoxes: Array,
-        dateTextBox: Array,
         form: null,
     },
     // computed: mapState(["forms", "currentStep"]),
@@ -58,6 +51,8 @@ export default {
         UploadPhotoBox,
         RadioBox,
         DateTextBox,
+        DateSelectBox,
+        MultiSelection,
     },
 };
 </script>

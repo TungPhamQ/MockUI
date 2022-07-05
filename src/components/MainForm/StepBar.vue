@@ -26,10 +26,9 @@
 
 <script>
 export default {
-    name: 'StepBar',
-    props: {
-    }
-}
+    name: "StepBar",
+    props: {},
+};
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
@@ -39,7 +38,6 @@ export default {
     position: relative;
     display: flex;
     justify-content: space-between;
-
 }
 
 .step-bar::after {
@@ -47,7 +45,7 @@ export default {
     content: "";
     width: 100%;
     height: 2px;
-    background-color: #DCDCDC;
+    background-color: #dcdcdc;
     top: 50%;
     z-index: 1;
 }
@@ -57,14 +55,15 @@ svg:not(:host).svg-inline--fa {
     width: 23px;
     height: 23px;
     padding: 9px;
-    background: #B2B1FF;
+    background: #b2b1ff;
     border-radius: 50%;
-    color: #6563FF;
+    color: #6563ff;
 }
 
 .step-icon {
     z-index: 101;
 }
 
-.pen-icon {}
+.pen-icon {
+}
 </style>

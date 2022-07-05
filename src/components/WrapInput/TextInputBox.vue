@@ -18,6 +18,9 @@
             >
                 <p v-if="textInputItem.required" class="required">必須</p>
                 <p class="item-title">{{ textInputItem.title }}</p>
+                <p class="description" style="display: block">
+                    {{ textInputItem.description }}
+                </p>
                 <input
                     type="text"
                     :placeholder="textInputItem.placeholder"
@@ -37,7 +40,7 @@ export default {
     props: {
         textInputBoxes: Array,
     },
-    method: {},
+    methods: {},
 };
 </script>
 

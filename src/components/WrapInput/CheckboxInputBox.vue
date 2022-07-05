@@ -9,7 +9,11 @@
             <p v-if="checkBox.required" class="required">必須</p>
             <h4 class="title">{{ checkBox.title }}</h4>
             <label class="checkbox-input-item">
-                <input type="checkbox" v-model="checkBox.value" />
+                <input
+                    type="checkbox"
+                    v-model="checkBox.value"
+                    @input="checkValidate(checkBox.value)"
+                />
                 {{ checkBox.content }}
             </label>
         </div>
@@ -17,15 +21,30 @@
 </template>
 
 <script>
+import EventBus from "../../EventBus";
+
 export default {
     name: "CheckboxInputBox",
     data() {
-        return {};
+        return {
+            errorBag: [],
+        };
     },
     props: {
         checkBoxes: Array,
     },
-    method: {},
+    methods: {
+        checkValidate(value) {
+            if (!value) {
+                this.errorBag.push("checkBox");
+                EventBus.$emit("checkValidate", this.errorBag);
+            } else {
+                const index = this.errorBag.indexOf("checkBox");
+                this.errorBag.splice(index, 1);
+            }
+        },
+    },
+    watch: {},
 };
 </script>
 

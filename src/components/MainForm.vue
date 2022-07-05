@@ -6,14 +6,16 @@
             <img class="icon-calendar" src="../assets/calendar.png" />
             <p>2021/09/01までご登録ください</p>
         </div>
-        <WarningBox />
+        <WarningBox v-if="isShowWarning" />
 
         <FormPage />
-        <button @click="$store.commit('nextStep')">+step</button>
+        <button @click="nextStep">入社手続きの入力に進む</button>
     </div>
 </template>
 
 <script>
+import EventBus from "../EventBus";
+
 import { mapState } from "vuex";
 import StepBar from "./MainForm/StepBar.vue";
 import WarningBox from "./MainForm/WarningBox.vue";
@@ -22,14 +24,49 @@ export default {
     props: {},
     components: { StepBar, WarningBox, FormPage },
     computed: mapState(["currentStep"]),
-    method: {},
+    data() {
+        return {
+            errorBag: [],
+            isShowWarning: false,
+        };
+    },
+    methods: {
+        nextStep: function () {
+            if (this.validForm()) {
+                this.$store.commit("nextStep");
+                this.isShowWarning = false;
+                return;
+            }
+            {
+                console.log("have to checkbox");
+                this.isShowWarning = true;
+            }
+        },
+        validForm() {
+            if (this.errorBag.length) {
+                return true;
+            }
+            return false;
+        },
+        errorBagSync(e) {
+            this.errorBag = e;
+        },
+    },
+    created() {
+        // Listening the event hello
+        EventBus.$on("checkValidate", this.errorBagSync);
+    },
+    destroyed() {
+        // Stop listening the event hello with handler
+        EventBus.$off("checkValidate", this.errorBagSync);
+    },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .main-form {
-    background: rgb(190, 189, 189);
+    /* background: rgb(190, 189, 189); */
     width: 560px;
     height: 100%;
     margin: auto;

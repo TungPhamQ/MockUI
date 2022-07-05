@@ -11,8 +11,8 @@ export const form2 = [
           "システムの本人アイコンに使用します。あなたの顔が分かる写真を登録してください。未登録の場合、姓名の頭文字が表示されます。顔写真見本のように撮影してください。また、背景は白、スーツ着用、身だしなみルールに沿って撮影をお願いいたします。",
         imgSource: "../../assets/photo_import.png",
         guide: `ファイルをドラッグ&ドロップ \n
-            ファイルをドロップするか、\n
-            ファイルを参照する`,
+ファイルをドロップするか、\n
+ファイルを参照する`,
       },
       {
         title: "本人確認書類",
@@ -21,8 +21,8 @@ export const form2 = [
         description: "運転免許証両面もしくは住民票を添付してください。",
         imgSource: "",
         guide: `ファイルをドラッグ&ドロップ \n
-            ファイルをドロップするか、\n
-            ファイルを参照する`,
+ファイルをドロップするか、\n
+ファイルを参照する`,
       },
     ],
   },
@@ -134,6 +134,69 @@ export const form2 = [
             value: "生年月日を入力すると表示されます",
           },
         ],
+      },
+    ],
+  },
+  {
+    textInputBoxes: [
+      {
+        title: "",
+        isDifferentBox: false,
+        key: 1,
+        description: "",
+        input: [
+          {
+            title: "ビジネスネーム",
+            key: 1,
+            required: false,
+            description: "旧姓を利用する等の場合に入力をしてください。",
+            placeholder: "入力してください",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    textInputBoxes: [
+      {
+        title: "最終学歴",
+        isDifferentBox: true,
+        key: 1,
+        description:
+          "最終学歴が大学院の方は、大学を登録後に「＋学歴を追加する」から大学院を登録してください。",
+      },
+    ],
+  },
+  {
+    dateSelectBoxes: [
+      {
+        title: "学歴1",
+        key: "1",
+        isDifferentBox: false,
+        description: "",
+        input: [
+          {
+            title: "入学年月日",
+            id: "入学年月日",
+            key: 1,
+            required: true,
+          },
+          {
+            title: "卒業年月日",
+            id: "卒業年月日",
+            key: 2,
+            required: true,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    multiSelect: [
+      {
+        title: "学歴区分",
+        placeholder: "選択してください",
+        data: [],
       },
     ],
   },
