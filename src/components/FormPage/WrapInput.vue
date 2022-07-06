@@ -10,15 +10,10 @@
                     <RadioBox :radioBoxes="item.radioBoxes" />
                     <DateTextBox :dateTextBox="item.dateTextBox" />
                     <DateSelectBox :dateSelectBoxes="item.dateSelectBoxes" />
+                    <SearchableOption :selectAndSearch="item.selectAndSearch" />
                     <SelectOption :selectOptions="item.selectOptions" />
                 </div>
             </div>
-
-            <!-- <UploadPhotoBox :photoBoxes="photoBoxes" />
-            <TextInputBox :textInputBoxes="textInputBoxes" />
-            <CheckboxInputBox :checkBoxes="checkBoxes" />
-            <RadioBox :radioBoxes="radioBoxes" />
-            <DateTextBox :dateTextBox="dateTextBox" /> -->
         </div>
     </div>
 </template>
@@ -35,6 +30,7 @@ import RadioBox from "../WrapInput/RadioBox.vue";
 import DateTextBox from "../WrapInput/DateTextBox.vue";
 import DateSelectBox from "../WrapInput/DateSelectBox.vue";
 import SelectOption from "../WrapInput/SelectOption.vue";
+import SearchableOption from "../WrapInput/SearchableOption.vue";
 
 export default {
     name: "WrapInput",
@@ -53,6 +49,7 @@ export default {
         DateTextBox,
         DateSelectBox,
         SelectOption,
+        SearchableOption,
     },
 };
 </script>

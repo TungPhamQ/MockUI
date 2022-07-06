@@ -221,27 +221,28 @@ export const form2 = [
       },
     ],
   },
-  //   {
-  //     selectInSearch: [
-  //       {
-  //         title: "search and select",
-  //         isDifferentBox: true,
-  //         key: 1,
-  //         options: [
-  //           {
-  //             name: "option 1",
-  //             code: "op1",
-  //           },
-  //           {
-  //             name: "option 2",
-  //             code: "op2",
-  //           },
-  //           {
-  //             name: "option 3",
-  //             code: "op3",
-  //           },
-  //         ],
-  //       },
-  //     ],
-  //   },
+  {
+    selectAndSearch: [
+      {
+        title: "学校名",
+        isDifferentBox: false,
+        required: true,
+        key: 1,
+        options: [
+          {
+            name: "option 1",
+            code: "op1",
+          },
+          {
+            name: "option 2",
+            code: "op2",
+          },
+          {
+            name: "option 3",
+            code: "op3",
+          },
+        ],
+      },
+    ],
+  },
 ];

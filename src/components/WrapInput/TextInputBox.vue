@@ -1,6 +1,5 @@
 <template>
     <div>
-        <!-- <p>test text input</p> -->
         <div
             v-for="textInputBox in textInputBoxes"
             :key="textInputBox.key"

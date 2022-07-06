@@ -6,7 +6,7 @@
             class="input-box"
             :class="{ 'different-box-class': item.isDifferentBox }"
         >
-            {{ item.title }}
+            {{ item.name }}
             <div class="custom-select">
                 <summary class="value-box content" @click="toggleList">
                     <input
