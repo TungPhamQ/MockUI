@@ -10,7 +10,7 @@
                     <RadioBox :radioBoxes="item.radioBoxes" />
                     <DateTextBox :dateTextBox="item.dateTextBox" />
                     <DateSelectBox :dateSelectBoxes="item.dateSelectBoxes" />
-                    <MultiSelection :multiSelect="item.multiSelect" />
+                    <SelectOption :selectOptions="item.selectOptions" />
                 </div>
             </div>
 
@@ -34,7 +34,7 @@ import UploadPhotoBox from "../WrapInput/UploadPhotoBox.vue";
 import RadioBox from "../WrapInput/RadioBox.vue";
 import DateTextBox from "../WrapInput/DateTextBox.vue";
 import DateSelectBox from "../WrapInput/DateSelectBox.vue";
-import MultiSelection from "../WrapInput/MultiSelection.vue";
+import SelectOption from "../WrapInput/SelectOption.vue";
 
 export default {
     name: "WrapInput",
@@ -52,7 +52,7 @@ export default {
         RadioBox,
         DateTextBox,
         DateSelectBox,
-        MultiSelection,
+        SelectOption,
     },
 };
 </script>

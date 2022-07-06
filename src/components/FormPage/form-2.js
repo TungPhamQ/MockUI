@@ -192,12 +192,56 @@ export const form2 = [
     ],
   },
   {
-    multiSelect: [
+    selectOptions: [
       {
         title: "学歴区分",
-        placeholder: "選択してください",
-        data: [],
+        isDifferentBox: false,
+        key: 1,
+        value: [],
+        options: [
+          {
+            name: "Trung Cấp",
+            checked: "",
+            id: "Trung Cấp",
+            key: 1,
+          },
+          {
+            name: "Cao Đẳng",
+            checked: "",
+            id: "Cao Đẳng",
+            key: 2,
+          },
+          {
+            name: "Đại Học",
+            checked: "",
+            id: "Đại Học",
+            key: 3,
+          },
+        ],
       },
     ],
   },
+  //   {
+  //     selectInSearch: [
+  //       {
+  //         title: "search and select",
+  //         isDifferentBox: true,
+  //         key: 1,
+  //         options: [
+  //           {
+  //             name: "option 1",
+  //             code: "op1",
+  //           },
+  //           {
+  //             name: "option 2",
+  //             code: "op2",
+  //           },
+  //           {
+  //             name: "option 3",
+  //             code: "op3",
+  //           },
+  //         ],
+  //       },
+  //     ],
+  //   },
 ];
