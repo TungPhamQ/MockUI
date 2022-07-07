@@ -11,20 +11,20 @@
             <p class="description">{{ textInputBox.description }}</p>
             <br />
 
-            <div
-                v-for="textInputItem in textInputBox.input"
-                :key="textInputItem.key"
-            >
-                <p v-if="textInputItem.required" class="required">必須</p>
-                <p class="item-title">{{ textInputItem.title }}</p>
+            <div v-for="item in textInputBox.input" :key="item.key">
+                <p v-if="item.required" class="required">必須</p>
+                <p class="item-title">{{ item.title }}</p>
                 <p class="description" style="display: block">
-                    {{ textInputItem.description }}
+                    {{ item.description }}
                 </p>
                 <input
                     type="text"
-                    :placeholder="textInputItem.placeholder"
+                    :placeholder="item.placeholder"
                     class="value-box content"
+                    @input="validateThisItem(item)"
                 />
+
+                <p class="error">{{ item.error }}</p>
             </div>
         </div>
     </div>
@@ -39,7 +39,22 @@ export default {
     props: {
         textInputBoxes: Array,
     },
-    methods: {},
+    methods: {
+        validateThisItem(item) {
+            if (item.required && item.value) {
+                item.error.isShow = true;
+                item.error.message = "invalid input";
+                this.$store.commit("PUSH_TO_ERROR_BAG", item.error);
+                return true;
+            }
+            {
+                this.$store.commit("PUSH_TO_ERROR_BAG", item.error);
+                item.error.isShow = false;
+                item.error.message = "";
+                return false;
+            }
+        },
+    },
 };
 </script>
 

@@ -6,6 +6,7 @@ export const form1 = [
       {
         title: "雇用契約期間の定め",
         key: 1,
+        type: "info",
         isDifferentBox: true,
         content: [
           {
@@ -189,9 +190,27 @@ export const form1 = [
       {
         title: "",
         key: 1,
+        type: "checkbox",
         required: true,
-        value: false,
+        value: true,
+        error: {
+          type: "checkbox",
+          key: 1,
+          isShow: Boolean,
+          message: "",
+        },
         content: "同意する場合はチェックをしてください",
+        // validate() {
+        //   if (this.required && this.value) {
+        //     this.error.isShow = true;
+        //     this.error.message = "You have to check the box";
+        //     return true;
+        //   }
+        //   {
+        //     this.error.isShow = false;
+        //     return false;
+        //   }
+        // },
       },
     ],
   },

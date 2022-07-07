@@ -18,6 +18,12 @@ export const form2 = [
         title: "本人確認書類",
         isDifferentBox: true,
         required: true,
+        error: {
+          type: "importPhoto",
+          key: 1,
+          isShow: Boolean,
+          message: "",
+        },
         description: "運転免許証両面もしくは住民票を添付してください。",
         imgSource: "",
         guide: `ファイルをドラッグ&ドロップ \n
@@ -41,6 +47,12 @@ export const form2 = [
             key: 1,
             required: true,
             placeholder: "入力してください",
+            error: {
+              type: "text",
+              key: 1,
+              isShow: true,
+              message: "1233",
+            },
           },
           {
             title: "名",
@@ -170,7 +182,7 @@ export const form2 = [
   {
     dateSelectBoxes: [
       {
-        title: "学歴1",
+        title: "学歴",
         key: "1",
         isDifferentBox: false,
         description: "",

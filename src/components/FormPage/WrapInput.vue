@@ -56,12 +56,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+>>> .error {
+    color: red;
+}
 >>> .required {
     display: inline;
     background: #ed5d5d;
     color: #fff;
     margin-right: 4px;
     border-radius: 2px;
+    margin-bottom: 8px;
+    padding: 0 8px;
 }
 >>> .different-box-class {
     margin-top: 10px;
@@ -70,7 +75,7 @@ export default {
 >>> .value-box {
     width: 528px;
     margin: auto;
-    margin-top: 10px;
+    margin-top: 8px;
     background: #fff;
     border: 1px solid #dcdcdc;
     border-radius: 4px;

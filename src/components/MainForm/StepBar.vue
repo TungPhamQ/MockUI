@@ -1,7 +1,5 @@
 <template>
     <div class="step-bar">
-        <!-- <img src="../assets/check.png"> -->
-
         <div class="step-icon">
             <font-awesome-icon icon="fa-solid fa-check" class="check-icon" />
         </div>
@@ -28,6 +26,14 @@
 export default {
     name: "StepBar",
     props: {},
+    computed: {
+        barWidth() {
+            return Math.round(
+                (this.$store.state.currentStep / this.$store.state.totalStep) *
+                    100
+            );
+        },
+    },
 };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -43,9 +49,9 @@ export default {
 .step-bar::after {
     position: absolute;
     content: "";
-    width: 100%;
+    width: ":barWidth()";
     height: 2px;
-    background-color: #dcdcdc;
+    background-color: #b2b1ff;
     top: 50%;
     z-index: 1;
 }

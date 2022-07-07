@@ -12,7 +12,7 @@
                 <div
                     v-for="option in radioBox.options"
                     :key="option.id"
-                    class="radio-box-item"
+                    class="radio-box-item value-box"
                 >
                     <input
                         type="radio"
