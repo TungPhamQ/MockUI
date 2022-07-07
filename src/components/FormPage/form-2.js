@@ -222,7 +222,7 @@ export const form2 = [
     ],
   },
   {
-    selectAndSearch: [
+    searchAndSelect: [
       {
         title: "学校名",
         isDifferentBox: false,

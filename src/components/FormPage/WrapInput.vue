@@ -10,8 +10,8 @@
                     <RadioBox :radioBoxes="item.radioBoxes" />
                     <DateTextBox :dateTextBox="item.dateTextBox" />
                     <DateSelectBox :dateSelectBoxes="item.dateSelectBoxes" />
-                    <SearchableOption :selectAndSearch="item.selectAndSearch" />
                     <SelectOption :selectOptions="item.selectOptions" />
+                    <SearchAndSelect :searchAndSelect="item.searchAndSelect" />
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@ import RadioBox from "../WrapInput/RadioBox.vue";
 import DateTextBox from "../WrapInput/DateTextBox.vue";
 import DateSelectBox from "../WrapInput/DateSelectBox.vue";
 import SelectOption from "../WrapInput/SelectOption.vue";
-import SearchableOption from "../WrapInput/SearchableOption.vue";
+import SearchAndSelect from "../WrapInput/SearchAndSelect.vue";
 
 export default {
     name: "WrapInput",
@@ -49,7 +49,7 @@ export default {
         DateTextBox,
         DateSelectBox,
         SelectOption,
-        SearchableOption,
+        SearchAndSelect,
     },
 };
 </script>
