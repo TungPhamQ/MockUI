@@ -56,6 +56,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+>>> .errorBox {
+    box-shadow: 0 0 4px #f4b6c1;
+    border: 1px solid #aa4651 !important;
+}
 >>> .input-container {
     position: relative;
 }

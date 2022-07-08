@@ -43,7 +43,10 @@ export const form2 = [
       {
         title: "基本情報登録",
         isDifferentBox: true,
-
+        validateRules: {
+          max: 50,
+          min: 1,
+        },
         key: 1,
         description:
           "外国式氏名が戸籍に記載されている場合、国際結婚により戸籍上の姓が外国式の姓となっている、もしくは重国籍で戸籍上の氏名が外国式の氏名となっている場合、戸籍上の綴りで入力してください。",
@@ -60,10 +63,6 @@ export const form2 = [
               isShow: false,
               message: "1233",
             },
-            validateRules: {
-              max: 50,
-              min: 1,
-            },
           },
           {
             title: "名",
@@ -76,10 +75,6 @@ export const form2 = [
               key: 2,
               isShow: false,
               message: "1233",
-            },
-            validateRules: {
-              max: 50,
-              min: 1,
             },
           },
           {
@@ -95,10 +90,6 @@ export const form2 = [
 
               message: "1233",
             },
-            validateRules: {
-              max: 50,
-              min: 1,
-            },
           },
           {
             title: "メイ",
@@ -111,10 +102,6 @@ export const form2 = [
               key: 4,
               isShow: false,
               message: "1233",
-            },
-            validateRules: {
-              max: 50,
-              min: 1,
             },
           },
           {
@@ -129,10 +116,6 @@ export const form2 = [
               isShow: false,
               message: "1233",
             },
-            validateRules: {
-              max: 50,
-              min: 1,
-            },
           },
           {
             title: "名（ローマ字）",
@@ -145,10 +128,6 @@ export const form2 = [
               key: 6,
               isShow: false,
               message: "1233",
-            },
-            validateRules: {
-              max: 50,
-              min: 1,
             },
           },
         ],

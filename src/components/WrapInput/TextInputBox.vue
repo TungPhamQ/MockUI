@@ -25,8 +25,9 @@
                     type="text"
                     :placeholder="item.placeholder"
                     class="value-box content"
+                    :class="{ errorBox: item.error.isShow }"
                     v-model="item.value"
-                    @blur="validateThisItem(item)"
+                    @blur="validateThisItem(item, textInputBox)"
                 />
                 <p v-if="item.error.isShow" class="error">
                     {{ item.error.message }}
@@ -47,24 +48,23 @@ export default {
     },
     computed: {},
     methods: {
-        validateThisItem(item) {
-            if (item.required && !this.PassValidateRules(item)) {
+        validateThisItem(item, textInputBox) {
+            if (item.required && !this.PassValidateRules(item, textInputBox)) {
                 item.error.isShow = true;
                 item.error.message = "invalid input";
-                this.$store.commit("PUSH_TO_ERROR_BAG", item.error);
-                return true;
+                this.$store.commit("PUSH_TO_ERROR_BAG", item);
+                return;
             }
             {
-                this.$store.commit("PUSH_TO_ERROR_BAG", item.error);
+                this.$store.commit("PUSH_TO_ERROR_BAG", item);
                 item.error.isShow = false;
                 item.error.message = "";
-                return false;
             }
         },
-        PassValidateRules(item) {
+        PassValidateRules(item, textInputBox) {
             if (
-                item.value.length >= item.validateRules.min &&
-                item.value.length < item.validateRules.max
+                item.value.length >= textInputBox.validateRules.min &&
+                item.value.length < textInputBox.validateRules.max
             ) {
                 return true;
             }

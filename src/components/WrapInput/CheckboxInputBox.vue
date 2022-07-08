@@ -73,6 +73,7 @@ export default {
     background: #f1f2f7;
     width: 100%;
     padding: 16px;
+    position: relative;
 }
 
 .checkbox-input-item {

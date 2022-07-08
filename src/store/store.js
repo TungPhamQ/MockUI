@@ -32,16 +32,18 @@ const mutations = {
   nextStep(state) {
     if (state.currentStep < state.totalStep) state.currentStep++;
   },
-  PUSH_TO_ERROR_BAG(state, error) {
-    const index = state.errorBag.indexOf(error);
-    console.log(index);
-    if (index !== -1) {
-      state.errorBag.splice(error, 1);
+  PUSH_TO_ERROR_BAG(state, item) {
+    const index = state.errorBag.indexOf(item.error);
+    console.log(item);
+
+    //TODO: FIX THIS LOGIC
+    if (index === -1) {
+      state.errorBag.push(item.error);
+      console.log(1);
+    } else if (!item.value) {
       return;
     }
-    state.errorBag.push(error);
-
-    console.log(state.errorBag);
+    state.errorBag.splice(item.error, 1);
   },
 };
 

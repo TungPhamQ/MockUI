@@ -46,7 +46,7 @@ export default {
     computed: {
         barWidth() {
             return Math.round(
-                this.$store.state.currentStep * this.BarWidthEachStep
+                (this.$store.state.currentStep - 1) * this.BarWidthEachStep
             );
         },
     },
@@ -64,7 +64,7 @@ export default {
 
 .step-bar-line {
     position: absolute;
-    /* width: 20%; */
+    width: 0%;
     height: 2px;
     background-color: #b2b1ff;
     top: 50%;
@@ -84,6 +84,4 @@ svg:not(:host).svg-inline--fa {
 .step-icon {
     z-index: 101;
 }
-
-
 </style>
