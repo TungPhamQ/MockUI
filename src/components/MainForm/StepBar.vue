@@ -1,24 +1,36 @@
 <template>
-    <div class="step-bar">
-        <div class="step-icon">
-            <font-awesome-icon icon="fa-solid fa-check" class="check-icon" />
-        </div>
+    <div>
+        <div class="step-bar">
+            <div class="step-icon">
+                <font-awesome-icon
+                    icon="fa-solid fa-check"
+                    class="check-icon"
+                />
+            </div>
 
-        <div class="step-icon">
-            <font-awesome-icon icon="fa-solid fa-pen" class="pen-icon" />
-        </div>
+            <div class="step-icon">
+                <font-awesome-icon icon="fa-solid fa-pen" class="pen-icon" />
+            </div>
 
-        <div class="step-icon">
-            <font-awesome-icon icon="fa-solid fa-check" class="check-icon" />
-        </div>
+            <div class="step-icon">
+                <font-awesome-icon
+                    icon="fa-solid fa-check"
+                    class="check-icon"
+                />
+            </div>
 
-        <div class="step-icon">
-            <font-awesome-icon icon="fa-solid fa-pen" class="pen-icon" />
-        </div>
+            <div class="step-icon">
+                <font-awesome-icon icon="fa-solid fa-pen" class="pen-icon" />
+            </div>
 
-        <div class="step-icon">
-            <font-awesome-icon icon="fa-solid fa-check" class="check-icon" />
+            <div class="step-icon">
+                <font-awesome-icon
+                    icon="fa-solid fa-check"
+                    class="check-icon"
+                />
+            </div>
         </div>
+        <div class="step-bar-line" :style="{ width: barWidth + 'px' }"></div>
     </div>
 </template>
 
@@ -26,11 +38,15 @@
 export default {
     name: "StepBar",
     props: {},
+    data() {
+        return {
+            BarWidthEachStep: 130,
+        };
+    },
     computed: {
         barWidth() {
             return Math.round(
-                (this.$store.state.currentStep / this.$store.state.totalStep) *
-                    100
+                this.$store.state.currentStep * this.BarWidthEachStep
             );
         },
     },
@@ -46,10 +62,9 @@ export default {
     justify-content: space-between;
 }
 
-.step-bar::after {
+.step-bar-line {
     position: absolute;
-    content: "";
-    width: ":barWidth()";
+    /* width: 20%; */
     height: 2px;
     background-color: #b2b1ff;
     top: 50%;
@@ -70,6 +85,5 @@ svg:not(:host).svg-inline--fa {
     z-index: 101;
 }
 
-.pen-icon {
-}
+
 </style>

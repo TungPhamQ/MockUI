@@ -56,8 +56,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+>>> .input-container {
+    position: relative;
+}
 >>> .error {
     color: red;
+    position: absolute;
+    top: 75px;
 }
 >>> .required {
     display: inline;

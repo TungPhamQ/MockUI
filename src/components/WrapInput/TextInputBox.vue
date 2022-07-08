@@ -11,7 +11,11 @@
             <p class="description">{{ textInputBox.description }}</p>
             <br />
 
-            <div v-for="item in textInputBox.input" :key="item.key">
+            <div
+                v-for="item in textInputBox.input"
+                :key="item.key"
+                class="input-container"
+            >
                 <p v-if="item.required" class="required">必須</p>
                 <p class="item-title">{{ item.title }}</p>
                 <p class="description" style="display: block">
@@ -21,10 +25,12 @@
                     type="text"
                     :placeholder="item.placeholder"
                     class="value-box content"
-                    @input="validateThisItem(item)"
+                    v-model="item.value"
+                    @blur="validateThisItem(item)"
                 />
-
-                <p class="error">{{ item.error }}</p>
+                <p v-if="item.error.isShow" class="error">
+                    {{ item.error.message }}
+                </p>
             </div>
         </div>
     </div>
@@ -39,9 +45,10 @@ export default {
     props: {
         textInputBoxes: Array,
     },
+    computed: {},
     methods: {
         validateThisItem(item) {
-            if (item.required && item.value) {
+            if (item.required && !this.PassValidateRules(item)) {
                 item.error.isShow = true;
                 item.error.message = "invalid input";
                 this.$store.commit("PUSH_TO_ERROR_BAG", item.error);
@@ -53,6 +60,15 @@ export default {
                 item.error.message = "";
                 return false;
             }
+        },
+        PassValidateRules(item) {
+            if (
+                item.value.length >= item.validateRules.min &&
+                item.value.length < item.validateRules.max
+            ) {
+                return true;
+            }
+            return false;
         },
     },
 };
