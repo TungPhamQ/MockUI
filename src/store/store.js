@@ -6,6 +6,7 @@ Vue.use(Vuex);
 const state = {
   currentStep: 1,
   totalStep: 5,
+  errorBag: [],
   //   forms: [
   //     Form1,
   //     Form2,
@@ -30,6 +31,19 @@ const actions = {};
 const mutations = {
   nextStep(state) {
     if (state.currentStep < state.totalStep) state.currentStep++;
+  },
+  PUSH_TO_ERROR_BAG(state, item) {
+    const index = state.errorBag.indexOf(item.error);
+    console.log(item);
+
+    //TODO: FIX THIS LOGIC
+    if (index === -1) {
+      state.errorBag.push(item.error);
+      console.log(1);
+    } else if (!item.value) {
+      return;
+    }
+    state.errorBag.splice(item.error, 1);
   },
 };
 

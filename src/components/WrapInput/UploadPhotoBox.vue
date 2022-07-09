@@ -25,7 +25,7 @@ export default {
     props: {
         photoBoxes: Array,
     },
-    method: {},
+    methods: {},
 };
 </script>
 
@@ -34,5 +34,10 @@ export default {
 h5 {
     white-space: pre;
     line-height: 22px;
+}
+
+.value-box {
+    text-align: center;
+    cursor: pointer;
 }
 </style>

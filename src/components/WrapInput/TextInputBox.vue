@@ -1,6 +1,5 @@
 <template>
     <div>
-        <!-- <p>test text input</p> -->
         <div
             v-for="textInputBox in textInputBoxes"
             :key="textInputBox.key"
@@ -13,16 +12,26 @@
             <br />
 
             <div
-                v-for="textInputItem in textInputBox.input"
-                :key="textInputItem.key"
+                v-for="item in textInputBox.input"
+                :key="item.key"
+                class="input-container"
             >
-                <p v-if="textInputItem.required" class="required">必須</p>
-                <p class="item-title">{{ textInputItem.title }}</p>
+                <p v-if="item.required" class="required">必須</p>
+                <p class="item-title">{{ item.title }}</p>
+                <p class="description" style="display: block">
+                    {{ item.description }}
+                </p>
                 <input
                     type="text"
-                    :placeholder="textInputItem.placeholder"
+                    :placeholder="item.placeholder"
                     class="value-box content"
+                    :class="{ errorBox: item.error.isShow }"
+                    v-model="item.value"
+                    @blur="validateThisItem(item, textInputBox)"
                 />
+                <p v-if="item.error.isShow" class="error">
+                    {{ item.error.message }}
+                </p>
             </div>
         </div>
     </div>
@@ -37,7 +46,31 @@ export default {
     props: {
         textInputBoxes: Array,
     },
-    method: {},
+    computed: {},
+    methods: {
+        validateThisItem(item, textInputBox) {
+            if (item.required && !this.PassValidateRules(item, textInputBox)) {
+                item.error.isShow = true;
+                item.error.message = "invalid input";
+                this.$store.commit("PUSH_TO_ERROR_BAG", item);
+                return;
+            }
+            {
+                this.$store.commit("PUSH_TO_ERROR_BAG", item);
+                item.error.isShow = false;
+                item.error.message = "";
+            }
+        },
+        PassValidateRules(item, textInputBox) {
+            if (
+                item.value.length >= textInputBox.validateRules.min &&
+                item.value.length < textInputBox.validateRules.max
+            ) {
+                return true;
+            }
+            return false;
+        },
+    },
 };
 </script>
 
