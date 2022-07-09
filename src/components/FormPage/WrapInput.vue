@@ -1,7 +1,7 @@
 <template>
     <div class="wrap-input">
-        {{ form }}
         <div v-for="(item, index) in form" :key="index">
+            {{ item }}
             <!-- <InfoBox :infos="infos" v-if="name === 'infos'" />
             <UploadPhotoBox
                 :photoBoxes="photoBoxes"
