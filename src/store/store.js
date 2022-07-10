@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 const state = {
   currentStep: 1,
-  totalStep: 5,
+  totalStep: 6,
   errorBag: [],
   //   forms: [
   //     Form1,
@@ -34,16 +34,17 @@ const mutations = {
   },
   PUSH_TO_ERROR_BAG(state, item) {
     const index = state.errorBag.indexOf(item.error);
-    console.log(item);
 
-    //TODO: FIX THIS LOGIC
     if (index === -1) {
       state.errorBag.push(item.error);
-      console.log(1);
-    } else if (!item.value) {
+      console.log("dont have err in bag");
+    } else if (index !== -1 && !item.value) {
+      console.log("have err in bag but still wrong");
       return;
+    } else {
+      state.errorBag.splice(item.error, 1);
+      console.log("err fixed");
     }
-    state.errorBag.splice(item.error, 1);
   },
 };
 

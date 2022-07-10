@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <NavBar />
+        <NavBar v-if="currentStep < 6" />
         <MainForm></MainForm>
     </div>
 </template>
@@ -8,6 +8,7 @@
 <script>
 import NavBar from "./components/NavBar.vue";
 import MainForm from "./components/MainForm.vue";
+import { mapState } from "vuex";
 
 export default {
     name: "App",
@@ -15,6 +16,7 @@ export default {
         NavBar,
         MainForm,
     },
+    computed: mapState(["currentStep"]),
 };
 </script>
 

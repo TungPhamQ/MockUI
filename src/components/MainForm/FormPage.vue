@@ -1,18 +1,7 @@
 <template>
     <div class="form-page">
         <div v-for="form in forms" :key="form.key">
-            <!-- <div v-if="currentStep === form.key"> -->
-            <!-- <WrapInput
-                    :infos="form.infos"
-                    :checkBoxes="form.checkBoxes"
-                    :photoBoxes="form.photoBoxes"
-                    :textInputBoxes="form.textInputBoxes"
-                    :radioBoxes="form.radioBoxes"
-                    :dateTextBox="form.dateTextBox"
-                    :form="form"
-                /> -->
             <WrapInput :form="form" />
-            <!-- </div> -->
         </div>
     </div>
 </template>
@@ -24,6 +13,7 @@ import WrapInput from "../FormPage/WrapInput.vue";
 import { form1 } from "../FormPage/form-1.js";
 import { form2 } from "../FormPage/form-2.js";
 import { form3 } from "../FormPage/form-3.js";
+import { form4 } from "../FormPage/form-4.js";
 
 export default {
     name: "FormPage",
@@ -32,7 +22,7 @@ export default {
     components: { WrapInput },
     data() {
         return {
-            forms: [form1, form2, form3],
+            forms: [form1, form2, form3, form4],
         };
     },
 };

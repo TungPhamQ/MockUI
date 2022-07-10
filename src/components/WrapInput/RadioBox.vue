@@ -19,6 +19,7 @@
                         :name="radioBox.name"
                         :id="option.id"
                         :value="option.value"
+                        :disabled="$store.state.currentStep == 4"
                     />
                     <label :for="option.id">{{ option.value }}</label>
                 </div>

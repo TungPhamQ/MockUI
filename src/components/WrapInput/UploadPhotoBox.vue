@@ -3,7 +3,8 @@
         <div
             v-for="item in photoBoxes"
             :key="item.key"
-            class="different-box-class input-box"
+            class="input-box"
+            :class="{ 'different-box-class': item.isDifferentBox }"
         >
             <h4 class="title">{{ item.title }}</h4>
             <p v-if="item.required" class="required">必須</p>

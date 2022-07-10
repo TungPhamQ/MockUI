@@ -6,24 +6,22 @@
             class="input-box"
             :class="{ 'different-box-class': item.isDifferentBox }"
         >
-            {{ item.name }}
+            <p v-if="item.required" class="required">必須</p>
+            <p class="item-title">{{ item.title }}</p>
+            <p class="description" style="display: block">
+                {{ item.description }}
+            </p>
             <div class="custom-select">
                 <summary class="value-box content" @click="toggleList">
-                    <!-- <input
-                        type="radio"
-                        :name="item.title"
-                        id="default"
-                        title="選択してください"
-                        checked
-                    /> -->
                     <SearchBar />
                     <input
                         v-for="option in item.options"
-                        :key="option.key"
+                        :key="option.code"
                         type="radio"
                         :name="item.title"
                         :id="option.name"
                         :title="option.name"
+                        :disabled="$store.state.currentStep == 4"
                     />
                 </summary>
                 <ul class="list" v-if="isShow">

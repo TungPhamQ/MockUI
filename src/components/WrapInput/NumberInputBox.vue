@@ -1,7 +1,7 @@
 <template>
-    <div class="date-text-box">
+    <div class="number-input-box">
         <div
-            v-for="item in dateTextBox"
+            v-for="item in numberInputBox"
             :key="item.key"
             class="input-box"
             :class="{ 'different-box-class': item.isDifferentBox }"
@@ -31,19 +31,31 @@
 <script>
 export default {
     props: {
-        dateTextBox: Array,
+        numberInputBox: Array,
     },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.add-zip-code-button {
+    background: #b2b1ff;
+    width: 116px;
+    height: 32px;
+    color: #fff;
+    border: 1px solid #b2b1ff;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 24px;
+}
 .title {
     display: inline;
 }
 
 .input-box-container {
     display: flex;
+    align-items: baseline;
 }
 .input-box-item {
     display: flex;

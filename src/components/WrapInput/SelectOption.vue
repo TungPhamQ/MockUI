@@ -6,7 +6,8 @@
             class="input-box"
             :class="{ 'different-box-class': item.isDifferentBox }"
         >
-            {{ item.name }}
+            <p v-if="item.required" class="required">必須</p>
+            <p class="item-title">{{ item.title }}</p>
             <div class="custom-select">
                 <summary class="value-box content" @click="toggleList">
                     <input
@@ -23,6 +24,7 @@
                         :name="item.title"
                         :id="option.name"
                         :title="option.name"
+                        :disabled="$store.state.currentStep == 4"
                     />
                 </summary>
                 <ul class="list" v-if="isShow">
@@ -59,6 +61,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.value-box {
+    margin-bottom: 0 !important;
+}
 .option {
     height: 148px;
 }
@@ -132,7 +137,7 @@ div summary:after {
 ul {
     width: 528px;
     background: #fff;
-    position: absolute;
+    /* position: absolute; */
     top: calc(100% + 1px);
     left: 0;
     margin: 0;

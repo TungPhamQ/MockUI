@@ -1,33 +1,5 @@
 <template>
     <div class="wrap-input">
-<<<<<<< HEAD
-        <div v-for="(item, index) in form" :key="index">
-            {{ item }}
-            <!-- <InfoBox :infos="infos" v-if="name === 'infos'" />
-            <UploadPhotoBox
-                :photoBoxes="photoBoxes"
-                v-if="name === 'photoBoxes'"
-            />
-            <TextInputBox
-                :textInputBoxes="textInputBoxes"
-                v-if="name === 'textInputBoxes'"
-            />
-            <CheckboxInputBox
-                :checkBoxes="checkBoxes"
-                v-if="name === 'checkBoxes'"
-            />
-            <RadioBox :radioBoxes="radioBoxes" v-if="name === 'radioBoxes'" />
-            <DateTextBox
-                :dateTextBox="dateTextBox"
-                v-if="name === 'dateTextBox'"
-            /> -->
-            <InfoBox :infos="infos" />
-            <UploadPhotoBox :photoBoxes="photoBoxes" />
-            <TextInputBox :textInputBoxes="textInputBoxes" />
-            <CheckboxInputBox :checkBoxes="checkBoxes" />
-            <RadioBox :radioBoxes="radioBoxes" />
-            <DateTextBox :dateTextBox="dateTextBox" />
-=======
         <div v-for="item in form" :key="item.key">
             <div v-if="currentStep === item.key">
                 <div v-for="item in form" :key="item.key">
@@ -40,9 +12,10 @@
                     <DateSelectBox :dateSelectBoxes="item.dateSelectBoxes" />
                     <SelectOption :selectOptions="item.selectOptions" />
                     <SearchAndSelect :searchAndSelect="item.searchAndSelect" />
+                    <ZipCodeBox :zipCodeBox="item.zipCodeBox" />
+                    <NumberInputBox :numberInputBox="item.numberInputBox" />
                 </div>
             </div>
->>>>>>> 0e3c653866c54d3af87d6dd17f8f50d77adc7dac
         </div>
     </div>
 </template>
@@ -60,6 +33,8 @@ import DateTextBox from "../WrapInput/DateTextBox.vue";
 import DateSelectBox from "../WrapInput/DateSelectBox.vue";
 import SelectOption from "../WrapInput/SelectOption.vue";
 import SearchAndSelect from "../WrapInput/SearchAndSelect.vue";
+import ZipCodeBox from "../WrapInput/ZipCodeBox.vue";
+import NumberInputBox from "../WrapInput/NumberInputBox.vue";
 
 export default {
     name: "WrapInput",
@@ -79,6 +54,8 @@ export default {
         DateSelectBox,
         SelectOption,
         SearchAndSelect,
+        ZipCodeBox,
+        NumberInputBox,
     },
 };
 </script>
@@ -141,6 +118,8 @@ export default {
 }
 
 >>> .title {
+    white-space: pre;
+
     font-weight: 400;
     font-size: 1.125rem;
     line-height: 42px;

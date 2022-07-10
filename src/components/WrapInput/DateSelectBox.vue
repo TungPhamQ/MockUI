@@ -23,6 +23,7 @@
                     min="1900-01-01"
                     max="3000-12-31"
                     class="value-box content"
+                    :disabled="$store.state.currentStep == 4"
                 />
             </div>
         </div>

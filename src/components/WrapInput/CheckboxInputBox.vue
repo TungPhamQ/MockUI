@@ -13,6 +13,7 @@
                     type="checkbox"
                     v-model="item.value"
                     @input="validateThisItem(item)"
+                    :disabled="$store.state.currentStep == 4"
                 />
                 {{ item.content }}
             </label>
@@ -37,29 +38,18 @@ export default {
         checkBoxes: Array,
     },
     methods: {
-        // checkValidate(value) {
-        //     if (value) {
-        //         this.errorBag.push("checkBox");
-        //         EventBus.$emit("checkValidate", this.errorBag);
-        //         return;
-        //     }
-        //     {
-        //         const index = this.errorBag.indexOf("checkBox");
-        //         this.errorBag.splice(index, 1);
-        //     }
-        // },
+        //TODO: FIX THIS LOGIC
+
         validateThisItem(item) {
-            if (item.required && item.value) {
+            if (item.required && !item.value) {
                 item.error.isShow = true;
                 item.error.message = "You have to check the box";
-                this.$store.commit("PUSH_TO_ERROR_BAG", item.error);
-                return true;
-            }
-            {
-                this.$store.commit("PUSH_TO_ERROR_BAG", item.error);
+                this.$store.commit("PUSH_TO_ERROR_BAG", item);
+                return;
+            } else if (item.required && item.value) {
+                this.$store.commit("PUSH_TO_ERROR_BAG", item);
                 item.error.isShow = false;
                 item.error.message = "";
-                return false;
             }
         },
     },

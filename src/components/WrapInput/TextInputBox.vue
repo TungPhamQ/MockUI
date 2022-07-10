@@ -28,6 +28,7 @@
                     :class="{ errorBox: item.error.isShow }"
                     v-model="item.value"
                     @blur="validateThisItem(item, textInputBox)"
+                    :disabled="$store.state.currentStep == 4"
                 />
                 <p v-if="item.error.isShow" class="error">
                     {{ item.error.message }}

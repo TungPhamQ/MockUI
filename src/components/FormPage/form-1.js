@@ -192,11 +192,11 @@ export const form1 = [
         key: 1,
         type: "checkbox",
         required: true,
-        value: true,
+        value: false,
         error: {
           type: "checkbox",
           key: 1,
-          isShow: Boolean,
+          isShow: false,
           message: "",
         },
         content: "同意する場合はチェックをしてください",
