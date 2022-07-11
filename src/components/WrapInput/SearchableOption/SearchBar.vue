@@ -5,6 +5,7 @@
             v-model="search"
             placeholder="フリーワードで検索できます"
             class="search-input"
+            value="111"
         />
     </div>
 </template>

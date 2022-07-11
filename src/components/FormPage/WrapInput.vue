@@ -1,7 +1,7 @@
 <template>
     <div class="wrap-input">
         <div v-for="item in form" :key="item.key">
-            <div v-if="currentStep === item.key">
+            <div v-if="currentStep == item.key">
                 <div v-for="item in form" :key="item.key">
                     <InfoBox :infos="item.infos" />
                     <UploadPhotoBox :photoBoxes="item.photoBoxes" />
@@ -14,6 +14,47 @@
                     <SearchAndSelect :searchAndSelect="item.searchAndSelect" />
                     <ZipCodeBox :zipCodeBox="item.zipCodeBox" />
                     <NumberInputBox :numberInputBox="item.numberInputBox" />
+                    <!-- <InfoBox :infos="item.infos" v-if="item.infos" />
+                    <UploadPhotoBox
+                        :photoBoxes="item.photoBoxes"
+                        v-if="item.photoBoxes"
+                    />
+                    <TextInputBox
+                        :textInputBoxes="item.textInputBoxes"
+                        v-if="item.textInputBoxes"
+                    />
+                    <CheckboxInputBox
+                        :checkBoxes="item.checkBoxes"
+                        v-if="item.checkBoxes"
+                    />
+                    <RadioBox
+                        :radioBoxes="item.radioBoxes"
+                        v-if="item.radioBoxes"
+                    />
+                    <DateTextBox
+                        :dateTextBox="item.dateTextBox"
+                        v-if="item.dateTextBox"
+                    />
+                    <DateSelectBox
+                        :dateSelectBoxes="item.dateSelectBoxes"
+                        v-if="item.dateSelectBoxes"
+                    />
+                    <SelectOption
+                        :selectOptions="item.selectOptions"
+                        v-if="item.selectOptions"
+                    />
+                    <SearchAndSelect
+                        :searchAndSelect="item.searchAndSelect"
+                        v-if="item.searchAndSelect"
+                    />
+                    <ZipCodeBox
+                        :zipCodeBox="item.zipCodeBox"
+                        v-if="item.zipCodeBox"
+                    />
+                    <NumberInputBox
+                        :numberInputBox="item.numberInputBox"
+                        v-if="item.numberInputBox"
+                    /> -->
                 </div>
             </div>
         </div>
@@ -43,6 +84,11 @@ export default {
     props: {
         form: null,
     },
+    methods: {
+        updateFile() {
+            // this.$emit()
+        },
+    },
     // computed: mapState(["forms", "currentStep"]),
     components: {
         InfoBox,
@@ -71,8 +117,8 @@ export default {
 }
 >>> .error {
     color: red;
-    position: absolute;
-    top: 75px;
+    /* position: absolute;
+    top: 75px; */
 }
 >>> .required {
     display: inline;
@@ -82,6 +128,7 @@ export default {
     border-radius: 2px;
     margin-bottom: 8px;
     padding: 0 8px;
+    border: 2px solid #ed5d5d;
 }
 >>> .different-box-class {
     margin-top: 10px;
@@ -127,6 +174,7 @@ export default {
 }
 
 >>> .input-box {
+    height: auto;
     width: 100%;
     background: #f1f2f7;
     padding: 16px;
@@ -138,5 +186,6 @@ export default {
     font-weight: 400;
     line-height: 22px;
     display: inline;
+    color: #333;
 }
 </style>

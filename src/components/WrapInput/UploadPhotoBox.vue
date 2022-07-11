@@ -9,8 +9,14 @@
             <h4 class="title">{{ item.title }}</h4>
             <p v-if="item.required" class="required">必須</p>
             <p class="description">{{ item.description }}</p>
-            <img src="" />
+            <br />
+            <img
+                class="preview-img"
+                v-if="item.previewImage"
+                :src="url ? url : require('../../assets/photo_import.png')"
+            />
             <div class="value-box">
+                <input type="file" @change="onFileChange" />
                 <img src="../../assets/upload.png" />
                 <h5>{{ item.guide }}</h5>
             </div>
@@ -21,12 +27,20 @@
 <script>
 export default {
     data() {
-        return {};
+        return {
+            url: null,
+        };
     },
     props: {
         photoBoxes: Array,
     },
-    methods: {},
+    methods: {
+        onFileChange(e) {
+            const file = e.target.files[0];
+            this.url = URL.createObjectURL(file);
+            this.$emit("updateFile", this.url);
+        },
+    },
 };
 </script>
 
@@ -40,5 +54,21 @@ h5 {
 .value-box {
     text-align: center;
     cursor: pointer;
+    position: relative;
+}
+
+.value-box input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.preview-img {
+    width: 120px;
+    height: 160px;
+    margin-left: 200px;
 }
 </style>

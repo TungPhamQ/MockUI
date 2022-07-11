@@ -12,14 +12,15 @@
                 <input
                     type="checkbox"
                     v-model="item.value"
-                    @input="validateThisItem(item)"
+                    @change="disableInputBelow(item.value)"
+                    :required="item.required"
                     :disabled="$store.state.currentStep == 4"
                 />
                 {{ item.content }}
             </label>
-            <p v-if="item.error.isShow" class="error">
+            <!-- <p v-if="item.error.isShow" class="error">
                 {{ item.error.message }}
-            </p>
+            </p> -->
         </div>
     </div>
 </template>
@@ -38,8 +39,6 @@ export default {
         checkBoxes: Array,
     },
     methods: {
-        //TODO: FIX THIS LOGIC
-
         validateThisItem(item) {
             if (item.required && !item.value) {
                 item.error.isShow = true;
@@ -50,6 +49,12 @@ export default {
                 this.$store.commit("PUSH_TO_ERROR_BAG", item);
                 item.error.isShow = false;
                 item.error.message = "";
+            }
+        },
+        disableInputBelow(value) {
+            if (!value) {
+                console.log("Disabling input below");
+                this.$store.commit("DISABLING_INPUT");
             }
         },
     },

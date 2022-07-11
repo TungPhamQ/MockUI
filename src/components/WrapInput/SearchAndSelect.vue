@@ -110,22 +110,6 @@ div summary:before {
     left: 0;
 }
 
-summary:after {
-    /* content: "";
-    position: absolute;
-    display: inline-block;
-    top: 13px;
-    right: 10px;
-    width: 0.5rem;
-    height: 0.5rem;
-    border-bottom: 1px solid currentColor;
-    border-left: 1px solid currentColor;
-    border-bottom-left-radius: 2px;
-    transform: rotate(45deg) translate(50%, 0%);
-    transform-origin: center center;
-    transition: transform ease-in-out 100ms; */
-}
-
 summary:focus {
     outline: none;
 }

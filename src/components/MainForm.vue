@@ -1,6 +1,10 @@
 <template>
-    <div class="main-form">
+    <form class="main-form" @submit="onSubmit">
         <section class="input-form" v-if="currentStep < 5">
+            <div class="prevStep" v-if="currentStep > 1">
+                <img src="../assets/ArrowLeft.png" />
+                <p @click="prevStep">雇用契約に戻る</p>
+            </div>
             <p>雇用契約について</p>
             <StepBar class="step-bar" />
             <div class="deadline-date">
@@ -18,9 +22,13 @@
                 </p>
             </div>
             <div class="btn">
-                <button @click="nextStep" v-if="currentStep == 1">
+                <button type="submit" v-if="currentStep == 1">
                     入社手続きの入力に進む</button
-                ><button @click="nextStep" v-if="currentStep > 1">
+                ><button
+                    type="submit"
+                    v-if="currentStep > 1"
+                    :class="{ 'step2-button': $store.state.currentStep == 2 }"
+                >
                     扶養控除申告の入力に進む
                 </button>
             </div>
@@ -41,7 +49,7 @@
                 <div class="last-step-container">
                     <h3>入社手続きの申請をします</h3>
                     <button class="x-btn">X</button>
-                    <div class="warning-box">
+                    <div class="warning-box-last-step">
                         <WarningBox />
                     </div>
                     <button class="return-btn">戻る</button>
@@ -49,7 +57,7 @@
                 </div>
             </div>
         </section>
-    </div>
+    </form>
 </template>
 
 <script>
@@ -70,6 +78,13 @@ export default {
         };
     },
     methods: {
+        onSubmit(event) {
+            event.preventDefault();
+            this.nextStep();
+        },
+        prevStep: function () {
+            this.$store.commit("prevStep");
+        },
         nextStep: function () {
             if (this.validForm()) {
                 this.$store.commit("nextStep");
@@ -102,6 +117,18 @@ export default {
 
 
 <style scoped>
+.prevStep {
+    cursor: pointer;
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 24px;
+    color: #666666;
+}
+
+.prevStep p {
+    display: inline;
+}
 .step-bar {
     margin: 24px 0;
 }
@@ -144,6 +171,12 @@ export default {
     position: absolute;
     top: 24px;
     left: 92px;
+}
+
+.step2-button {
+    background: #fff !important;
+    border: 1px solid #b2b1ff;
+    color: #b2b1ff !important;
 }
 .btn button {
     width: 100%;
@@ -209,7 +242,7 @@ export default {
 .last-step-window {
     width: 100vw;
     height: 100vh;
-    background: rgb(175, 199, 220);
+    background: #b8bac4;
 
     padding: 50px;
 }
@@ -234,13 +267,14 @@ export default {
     top: 32px;
     left: 48px;
 }
-.warning-box {
+.warning-box-last-step {
+    position: absolute;
+    top: 50px;
+    left: 47px;
     width: 513px;
     height: 121px;
     margin: 0;
-    position: absolute;
-    top: 45px;
-    left: 25px;
+    margin-bottom: 16px;
 }
 
 .x-btn {

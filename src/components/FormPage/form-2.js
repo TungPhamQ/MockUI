@@ -7,6 +7,7 @@ export const form2 = [
         title: "顔写真の登録",
         isDifferentBox: false,
         required: false,
+        previewImage: true,
         error: {
           type: "importPhoto",
           key: 1,
@@ -15,7 +16,7 @@ export const form2 = [
         },
         description:
           "システムの本人アイコンに使用します。あなたの顔が分かる写真を登録してください。未登録の場合、姓名の頭文字が表示されます。顔写真見本のように撮影してください。また、背景は白、スーツ着用、身だしなみルールに沿って撮影をお願いいたします。",
-        imgSource: "../../assets/photo_import.png",
+        url: "",
         guide: `ファイルをドラッグ&ドロップ \n
 ファイルをドロップするか、\n
 ファイルを参照する`,
@@ -24,6 +25,7 @@ export const form2 = [
         title: "本人確認書類",
         isDifferentBox: true,
         required: true,
+        previewImage: false,
         error: {
           type: "importPhoto",
           key: 1,
@@ -226,27 +228,28 @@ export const form2 = [
     ],
   },
   {
-    infos: [
+    textInputBoxes: [
       {
         title: "最終学歴",
-        key: 1,
         isDifferentBox: true,
-        content: [
-          {
-            key: 1,
-            value:
-              "最終学歴が大学院の方は、大学を登録後に「＋学歴を追加する」から大学院を登録してください。",
-          },
-        ],
+        validateRules: {
+          max: 50,
+          min: 1,
+        },
+        key: 2,
+        description:
+          "最終学歴が大学院の方は、大学を登録後に「＋学歴を追加する」から大学院を登録してください。",
       },
     ],
   },
+
   {
     dateSelectBoxes: [
       {
         title: "学歴",
         key: "1",
         isDifferentBox: false,
+        value: "",
         description: "",
         input: [
           {
@@ -254,12 +257,26 @@ export const form2 = [
             id: "入学年月日",
             key: 1,
             required: true,
+            value: "",
+            error: {
+              type: "date",
+              key: 1,
+              isShow: false,
+              message: "",
+            },
           },
           {
             title: "卒業年月日",
             id: "卒業年月日",
             key: 2,
             required: true,
+            value: "",
+            error: {
+              type: "date",
+              key: 2,
+              isShow: false,
+              message: "",
+            },
           },
         ],
       },
@@ -269,25 +286,23 @@ export const form2 = [
     selectOptions: [
       {
         title: "学歴区分",
+        placeholder: "選択してください",
         isDifferentBox: false,
         key: 1,
         value: [],
         options: [
           {
             name: "Trung Cấp",
-            checked: "",
             id: "Trung Cấp",
             key: 1,
           },
           {
             name: "Cao Đẳng",
-            checked: "",
             id: "Cao Đẳng",
             key: 2,
           },
           {
             name: "Đại Học",
-            checked: "",
             id: "Đại Học",
             key: 3,
           },
@@ -302,6 +317,7 @@ export const form2 = [
         isDifferentBox: false,
         required: true,
         key: 1,
+        value: "",
         options: [
           {
             name: "option 1",
@@ -472,19 +488,23 @@ export const form2 = [
         key: 1,
         options: [
           {
-            name: "option 1.2",
-            code: "op1.2",
+            name: "option 12",
+            code: "op12",
           },
           {
-            name: "option 2.2",
-            code: "op2.2",
+            name: "option 22",
+            code: "op22",
           },
           {
-            name: "option 3.2",
-            code: "op3.2",
+            name: "option 32",
+            code: "op32",
           },
         ],
       },
+    ],
+  },
+  {
+    searchAndSelect: [
       {
         title: "支店名をフリーワードで検索",
         description: "｢しんじゅく｣や｢しぶや｣などの一単語のみで検索できます",
@@ -578,6 +598,7 @@ export const form2 = [
         // TODO: DISABLE THESE
         title: ``,
         isDifferentBox: false,
+        isDisabled: false,
         validateRules: {
           max: 50,
           min: 1,
@@ -677,25 +698,23 @@ export const form2 = [
     selectOptions: [
       {
         title: "国籍",
+        placeholder: "選択してください",
         isDifferentBox: false,
         key: 2,
         value: [],
         options: [
           {
             name: "Viet Nam",
-            checked: "",
             id: "Viet Nam",
             key: 1,
           },
           {
             name: "Nhat Ban",
-            checked: "",
             id: "Nhat Ban",
             key: 2,
           },
           {
             name: "My",
-            checked: "",
             id: "My",
             key: 3,
           },
@@ -707,25 +726,23 @@ export const form2 = [
     selectOptions: [
       {
         title: "在留資格",
+        placeholder: "選択してください",
         isDifferentBox: false,
         key: 2,
         value: [],
         options: [
           {
             name: "Cu Tru 1",
-            checked: "",
             id: "Cu Tru 1",
             key: 1,
           },
           {
             name: "Cu Tru 2",
-            checked: "",
             id: "Cu Tru 2",
             key: 2,
           },
           {
             name: "Cu Tru 3",
-            checked: "",
             id: "Cu Tru 3",
             key: 3,
           },
@@ -744,8 +761,15 @@ export const form2 = [
           {
             title: "在留期間（満了日）",
             id: "在留期間（満了日）",
-            key: 1,
+            key: 3,
             required: false,
+            value: "",
+            error: {
+              type: "select",
+              key: 3,
+              isShow: false,
+              message: "123",
+            },
           },
         ],
       },
@@ -755,25 +779,23 @@ export const form2 = [
     selectOptions: [
       {
         title: "資格外活動許可",
+        placeholder: "選択してください",
         isDifferentBox: false,
         key: 2,
         value: [],
         options: [
           {
             name: "Giay phep 1",
-            checked: "",
             id: "Giay phep 1",
             key: 1,
           },
           {
             name: "Giay phep 2",
-            checked: "",
             id: "Giay phep 2",
             key: 2,
           },
           {
             name: "Giay phep 3",
-            checked: "",
             id: "Giay phep 3",
             key: 3,
           },
@@ -785,25 +807,23 @@ export const form2 = [
     selectOptions: [
       {
         title: "就労区分",
+        placeholder: "選択してください",
         isDifferentBox: false,
         key: 2,
         value: [],
         options: [
           {
             name: "cong viec  1",
-            checked: "",
             id: "cong viec 1",
             key: 1,
           },
           {
             name: "cong viec 2",
-            checked: "",
             id: "cong viec 2",
             key: 2,
           },
           {
             name: "cong viec 3",
-            checked: "",
             id: "cong viec 3",
             key: 3,
           },
@@ -882,6 +902,7 @@ export const form2 = [
     selectOptions: [
       {
         title: "世帯主区分",
+        placeholder: "選択してください",
         isDifferentBox: true,
         required: true,
         key: 2,
@@ -889,19 +910,16 @@ export const form2 = [
         options: [
           {
             name: "chu Nha 1",
-            checked: "",
             id: "chu Nha 1",
             key: 1,
           },
           {
             name: "chu Nha 2",
-            checked: "",
             id: "chu Nha 2",
             key: 2,
           },
           {
             name: "chu Nha 3",
-            checked: "",
             id: "chu Nha 3",
             key: 3,
           },
@@ -913,6 +931,7 @@ export const form2 = [
     selectOptions: [
       {
         title: "住居区分",
+        placeholder: "選択してください",
         isDifferentBox: false,
         required: true,
         key: 2,
@@ -920,19 +939,16 @@ export const form2 = [
         options: [
           {
             name: "Phan Biet Cu Tru 1",
-            checked: "",
             id: "Phan Biet Cu Tru 1",
             key: 1,
           },
           {
             name: "Phan Biet Cu Tru 2",
-            checked: "",
             id: "Phan Biet Cu Tru 2",
             key: 2,
           },
           {
             name: "Phan Biet Cu Tru 3",
-            checked: "",
             id: "Phan Biet Cu Tru 3",
             key: 3,
           },
@@ -1031,9 +1047,10 @@ export const form2 = [
             },
           },
           {
-            title: "電話番号（半角）--required either",
+            title: "電話番号（半角）",
             key: 25,
-            required: true,
+            required: false,
+            requiredEither: true,
             value: "",
             description:
               "自宅電話番号が無い場合、携帯電話番号のみ登録してください。",
@@ -1046,9 +1063,10 @@ export const form2 = [
             },
           },
           {
-            title: "携帯電話番号（半角）--required either",
+            title: "携帯電話番号（半角）",
             key: 1,
-            required: true,
+            required: false,
+            requiredEither: true,
             value: "",
             description: "",
             placeholder: "入力してください",
@@ -1197,6 +1215,7 @@ export const form2 = [
     selectOptions: [
       {
         title: "関係姓",
+        placeholder: "選択してください",
         isDifferentBox: false,
         required: true,
         key: 1,
@@ -1204,19 +1223,16 @@ export const form2 = [
         options: [
           {
             name: "関係姓 1",
-            checked: "",
             id: "関係姓 1",
             key: 1,
           },
           {
             name: "関係姓 2",
-            checked: "",
             id: "関係姓 2",
             key: 2,
           },
           {
             name: "関係姓 3",
-            checked: "",
             id: "関係姓 3",
             key: 3,
           },
@@ -1383,9 +1399,10 @@ export const form2 = [
             },
           },
           {
-            title: "電話番号（半角）--required either",
+            title: "電話番号（半角）",
+            requiredEither: true,
             key: 38,
-            required: true,
+            required: false,
             value: "",
             description:
               "自宅電話番号が無い場合、携帯電話番号のみ登録してください。",
@@ -1398,9 +1415,10 @@ export const form2 = [
             },
           },
           {
-            title: "携帯電話番号（半角）--required either",
+            title: "携帯電話番号（半角）",
+            requiredEither: true,
             key: 39,
-            required: true,
+            required: false,
             value: "",
             description: "",
             placeholder: "入力してください",
@@ -1437,6 +1455,7 @@ export const form2 = [
     selectOptions: [
       {
         title: "続柄",
+        placeholder: "選択してください",
         isDifferentBox: false,
         required: true,
         key: 1,
@@ -1444,19 +1463,16 @@ export const form2 = [
         options: [
           {
             name: "続柄 1",
-            checked: "",
             id: "続柄 1",
             key: 1,
           },
           {
             name: "続柄 2",
-            checked: "",
             id: "続柄 2",
             key: 2,
           },
           {
             name: "続柄 3",
-            checked: "",
             id: "続柄 3",
             key: 3,
           },
@@ -1751,25 +1767,23 @@ export const form2 = [
     selectOptions: [
       {
         title: "職業区分",
+        placeholder: "選択してください",
         isDifferentBox: false,
         key: 1,
         value: [],
         options: [
           {
             name: "職業区分 1",
-            checked: "",
             id: "職業区分 1",
             key: 1,
           },
           {
             name: "職業区分 2",
-            checked: "",
             id: "職業区分  2",
             key: 2,
           },
           {
             name: "職業区分 3",
-            checked: "",
             id: " 職業区分 3",
             key: 3,
           },
@@ -1811,25 +1825,23 @@ export const form2 = [
     selectOptions: [
       {
         title: "健康保険扶養区分",
+        placeholder: "選択してください",
         isDifferentBox: false,
         key: 1,
         value: [],
         options: [
           {
             name: "健康保険扶養区分 1",
-            checked: "",
             id: "健康保険扶養区分 1",
             key: 1,
           },
           {
             name: "健康保険扶養区分 2",
-            checked: "",
             id: "健康保険扶養区分  2",
             key: 2,
           },
           {
             name: "健康保険扶養区分 3",
-            checked: "",
             id: " 健康保険扶養区分 3",
             key: 3,
           },
@@ -1864,7 +1876,7 @@ export const form2 = [
           {
             key: 1,
             value: `経路が２つ以上ある場合は、運賃の安い方を選択してください。
-            片道料金はICカード料金ではなく現金（切符）料金となります。`,
+片道料金はICカード料金ではなく現金（切符）料金となります。`,
           },
         ],
       },
@@ -1874,6 +1886,7 @@ export const form2 = [
     selectOptions: [
       {
         title: "通勤手段",
+        placeholder: "選択してください",
         isDifferentBox: false,
         required: true,
         key: 1,
@@ -1881,19 +1894,16 @@ export const form2 = [
         options: [
           {
             name: "通勤手段 1",
-            checked: "",
             id: "通勤手段 1",
             key: 1,
           },
           {
             name: "通勤手段 2",
-            checked: "",
             id: "通勤手段  2",
             key: 2,
           },
           {
             name: "通勤手段 3",
-            checked: "",
             id: " 通勤手段 3",
             key: 3,
           },
