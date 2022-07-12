@@ -522,7 +522,6 @@ export const form2 = [
   {
     searchAndSelect: [
       {
-        //TODO: Make the big title
         title: "金融機関をフリーワードで検索",
         description: "｢とうきょう｣や｢しんよう｣などの一単語のみで検索できます",
         isDifferentBox: true,
@@ -545,31 +544,7 @@ export const form2 = [
       },
     ],
   },
-  {
-    searchAndSelect: [
-      {
-        title: "支店名をフリーワードで検索",
-        description: "｢しんじゅく｣や｢しぶや｣などの一単語のみで検索できます",
-        isDifferentBox: false,
-        required: true,
-        key: 2,
-        options: [
-          {
-            name: "option 1.2",
-            code: "op1.2",
-          },
-          {
-            name: "option 2.2",
-            code: "op2.2",
-          },
-          {
-            name: "option 3.2",
-            code: "op3.2",
-          },
-        ],
-      },
-    ],
-  },
+
   {
     textInputBoxes: [
       {

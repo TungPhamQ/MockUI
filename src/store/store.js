@@ -41,6 +41,9 @@ const mutations = {
   DISABLING_INPUT(state) {
     state.isDisabled = !state.isDisabled;
   },
+  BACK_TO_STEP_ONE(state) {
+    state.currentStep = 1;
+  },
 };
 
 //export store module

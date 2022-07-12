@@ -102,7 +102,7 @@ export default {
     border: 1px solid #aa4651 !important;
 }
 >>> .input-container {
-    position: relative;
+    /* position: relative; */
 }
 >>> .error {
     color: red;

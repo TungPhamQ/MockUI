@@ -48,12 +48,17 @@
             <div v-if="currentStep === 6" class="last-step-window">
                 <div class="last-step-container">
                     <h3>入社手続きの申請をします</h3>
-                    <button class="x-btn">X</button>
+                    <button class="x-btn" @click="toStepOne">X</button>
                     <div class="warning-box-last-step">
                         <WarningBox />
                     </div>
-                    <button class="return-btn">戻る</button>
-                    <button class="accept-btn">申請する</button>
+                    <button class="return-btn" @click="toStepOne">戻る</button>
+                    <input
+                        @click="submitForm"
+                        type="submit"
+                        class="accept-btn"
+                        value="申請する"
+                    />
                 </div>
             </div>
         </section>
@@ -102,6 +107,12 @@ export default {
                 return false;
             }
             return true;
+        },
+        toStepOne() {
+            this.$store.commit("BACK_TO_STEP_ONE");
+        },
+        submitForm() {
+            alert("THANK YOU FOR SUBMITTING");
         },
     },
     // created() {

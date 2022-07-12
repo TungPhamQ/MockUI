@@ -8,12 +8,10 @@
         >
             <p v-if="radioBox.required" class="required">必須</p>
             {{ radioBox.name }}
-
             <div class="radio-box-container">
                 <div
                     v-for="option in radioBox.options"
                     :key="option.id"
-                    @change="validateThisItem(radioBox)"
                     class="radio-box-item value-box"
                 >
                     <input
@@ -21,14 +19,13 @@
                         :name="radioBox.name"
                         :id="option.id"
                         :value="option.value"
-                        v-model="radioBox.value"
                         :disabled="$store.state.currentStep == 4"
                     />
                     <label :for="option.id">{{ option.value }}</label>
-                    <p v-if="radioBox.error.isShow" class="error">
-                        {{ radioBox.error.message }}
-                    </p>
                 </div>
+                <p v-if="radioBox.error.isShow" class="error">
+                    {{ radioBox.error.message }}
+                </p>
             </div>
         </div>
     </div>

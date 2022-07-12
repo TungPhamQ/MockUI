@@ -24,7 +24,7 @@
                         :disabled="$store.state.currentStep == 4"
                     />
                 </summary>
-                <ul class="list" v-if="isShow">
+                <ul class="list" v-if="!isShow">
                     <li>
                         <label
                             v-for="option in item.options"
@@ -45,7 +45,7 @@ export default {
     components: { SearchBar },
     data() {
         return {
-            isShow: false,
+            isShow: true,
         };
     },
     props: { searchAndSelect: Array },
@@ -174,6 +174,8 @@ input[type="radio"]:after {
     content: attr(title);
     display: inline;
     font-size: 1rem;
+    margin-left: 48px;
+    background: #fff;
 }
 
 ul.list {
