@@ -10,18 +10,19 @@
             <h4 class="item-title">{{ item.name }}</h4>
             <div class="input-box-container">
                 <div
-                    v-for="item in item.values"
-                    :key="item.id"
+                    v-for="input in item.values"
+                    :key="input.id"
                     class="input-box-item"
                 >
+                    {{ input.value }}
                     <input
-                        type="text"
-                        :value="item.value"
+                        type="number"
+                        v-model="input.value"
                         class="value-box content"
-                        :placeholder="item.placeholder"
+                        :placeholder="input.placeholder"
                         :disabled="$store.state.currentStep == 4"
                     />
-                    <label class="lable">{{ item.name }}</label>
+                    <label class="lable">{{ input.name }}</label>
                 </div>
             </div>
         </div>
@@ -33,6 +34,7 @@ export default {
     props: {
         numberInputBox: Array,
     },
+    methods: {},
 };
 </script>
 
@@ -67,5 +69,17 @@ export default {
 
 .lable {
     margin: 0 16px 0 8px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 </style>

@@ -40,6 +40,21 @@ export default {
             this.url = URL.createObjectURL(file);
             this.$emit("updateFile", this.url);
         },
+        validateThisItem(item) {
+            if (item.required && !this.url) {
+                console.log("not ok");
+                item.error.isShow = true;
+                item.error.message = "invalid input";
+                this.$store.commit("PUSH_TO_ERROR_BAG", item);
+                return;
+            } else if (item.required && this.url) {
+                console.log("ok");
+
+                this.$store.commit("PUSH_TO_ERROR_BAG", item);
+                item.error.isShow = false;
+                item.error.message = "";
+            }
+        },
     },
 };
 </script>

@@ -10,18 +10,23 @@
             <h4 class="item-title">{{ item.name }}</h4>
             <div class="input-box-container">
                 <div
-                    v-for="item in item.values"
-                    :key="item.id"
+                    v-for="input in item.values"
+                    :key="input.id"
                     class="input-box-item"
                 >
                     <input
-                        type="text"
-                        :value="item.value"
+                        type="number"
+                        v-model="input.value"
                         class="value-box content"
-                        :placeholder="item.placeholder"
+                        :class="{ errorBox: input.error.isShow }"
+                        :placeholder="input.placeholder"
+                        @blur="validateThisItem(input, item)"
                         :disabled="$store.state.currentStep == 4"
                     />
-                    <label class="lable">{{ item.name }}</label>
+                    <label class="lable">{{ input.name }}</label>
+                    <p v-if="input.error.isShow" class="error">
+                        {{ input.error.message }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -32,6 +37,32 @@
 export default {
     props: {
         dateTextBox: Array,
+    },
+    methods: {
+        validateThisItem(item, textInputBox) {
+            if (item.required && !this.PassValidateRules(item, textInputBox)) {
+                item.error.isShow = true;
+                item.error.message = "invalid input";
+                this.$store.commit("PUSH_TO_ERROR_BAG", item);
+                return;
+            } else if (
+                item.required &&
+                this.PassValidateRules(item, textInputBox)
+            ) {
+                this.$store.commit("PUSH_TO_ERROR_BAG", item);
+                item.error.isShow = false;
+                item.error.message = "";
+            }
+        },
+        PassValidateRules(item, textInputBox) {
+            if (
+                item.value.length >= textInputBox.validateRules.min &&
+                item.value.length < textInputBox.validateRules.max
+            ) {
+                return true;
+            }
+            return false;
+        },
     },
 };
 </script>
@@ -55,5 +86,15 @@ export default {
 
 .lable {
     margin: 0 16px 0 8px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 </style>

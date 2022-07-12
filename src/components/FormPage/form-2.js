@@ -21,6 +21,10 @@ export const form2 = [
 ファイルをドロップするか、\n
 ファイルを参照する`,
       },
+    ],
+  },
+  {
+    photoBoxes: [
       {
         title: "本人確認書類",
         isDifferentBox: true,
@@ -142,6 +146,13 @@ export const form2 = [
         name: "性別",
         key: 1,
         required: true,
+        value: "",
+        error: {
+          type: "radio",
+          key: 2,
+          isShow: false,
+          message: "",
+        },
         options: [
           {
             id: "男性",
@@ -162,23 +173,42 @@ export const form2 = [
         key: 1,
         isDifferentBox: false,
         required: true,
-        values: [
-          {
+
+        values: {
+          year: {
             name: "年",
             value: "",
             placeholder: "西暦（半角）",
+            error: {
+              type: "text",
+              key: 2,
+              isShow: false,
+              message: "",
+            },
           },
-          {
+          month: {
             name: "月",
             value: "",
             placeholder: "半角",
+            error: {
+              type: "text",
+              key: 2,
+              isShow: false,
+              message: "",
+            },
           },
-          {
+          day: {
             name: "日",
             value: "",
             placeholder: "半角",
+            error: {
+              type: "text",
+              key: 2,
+              isShow: false,
+              message: "",
+            },
           },
-        ],
+        },
       },
     ],
   },
@@ -289,7 +319,13 @@ export const form2 = [
         placeholder: "選択してください",
         isDifferentBox: false,
         key: 1,
-        value: [],
+        value: "",
+        error: {
+          type: "text",
+          key: 1,
+          isShow: false,
+          message: "",
+        },
         options: [
           {
             name: "Trung Cấp",
@@ -352,8 +388,7 @@ export const form2 = [
             key: 8,
             required: false,
             value: "",
-            placeholder:
-              "入力してください - this place have button right below",
+            placeholder: "入力してください ",
             error: {
               type: "text",
               key: 1,
@@ -464,6 +499,13 @@ export const form2 = [
         name: "確定拠出年金の利用希望",
         key: 1,
         required: false,
+        value: "",
+        error: {
+          type: "radio",
+          key: 2,
+          isShow: false,
+          message: "",
+        },
         options: [
           {
             id: "希望する",
@@ -701,7 +743,13 @@ export const form2 = [
         placeholder: "選択してください",
         isDifferentBox: false,
         key: 2,
-        value: [],
+        value: "",
+        error: {
+          type: "text",
+          key: 1,
+          isShow: false,
+          message: "",
+        },
         options: [
           {
             name: "Viet Nam",
@@ -729,7 +777,13 @@ export const form2 = [
         placeholder: "選択してください",
         isDifferentBox: false,
         key: 2,
-        value: [],
+        value: "",
+        error: {
+          type: "text",
+          key: 1,
+          isShow: false,
+          message: "",
+        },
         options: [
           {
             name: "Cu Tru 1",
@@ -782,7 +836,13 @@ export const form2 = [
         placeholder: "選択してください",
         isDifferentBox: false,
         key: 2,
-        value: [],
+        value: "",
+        error: {
+          type: "text",
+          key: 1,
+          isShow: false,
+          message: "",
+        },
         options: [
           {
             name: "Giay phep 1",
@@ -810,7 +870,13 @@ export const form2 = [
         placeholder: "選択してください",
         isDifferentBox: false,
         key: 2,
-        value: [],
+        value: "",
+        error: {
+          type: "text",
+          key: 1,
+          isShow: false,
+          message: "",
+        },
         options: [
           {
             name: "cong viec  1",
@@ -906,7 +972,13 @@ export const form2 = [
         isDifferentBox: true,
         required: true,
         key: 2,
-        value: [],
+        value: "",
+        error: {
+          type: "text",
+          key: 1,
+          isShow: false,
+          message: "",
+        },
         options: [
           {
             name: "chu Nha 1",
@@ -935,7 +1007,13 @@ export const form2 = [
         isDifferentBox: false,
         required: true,
         key: 2,
-        value: [],
+        value: "",
+        error: {
+          type: "text",
+          key: 1,
+          isShow: false,
+          message: "",
+        },
         options: [
           {
             name: "Phan Biet Cu Tru 1",
@@ -1219,7 +1297,13 @@ export const form2 = [
         isDifferentBox: false,
         required: true,
         key: 1,
-        value: [],
+        value: "",
+        error: {
+          type: "text",
+          key: 1,
+          isShow: false,
+          message: "",
+        },
         options: [
           {
             name: "関係姓 1",
@@ -1459,7 +1543,13 @@ export const form2 = [
         isDifferentBox: false,
         required: true,
         key: 1,
-        value: [],
+        value: "",
+        error: {
+          type: "text",
+          key: 1,
+          isShow: false,
+          message: "",
+        },
         options: [
           {
             name: "続柄 1",
@@ -1580,6 +1670,13 @@ export const form2 = [
         name: "性別",
         key: 1,
         required: true,
+        value: "",
+        error: {
+          type: "radio",
+          key: 2,
+          isShow: false,
+          message: "",
+        },
         options: [
           {
             id: "男性",
@@ -1600,23 +1697,42 @@ export const form2 = [
         key: 1,
         isDifferentBox: false,
         required: true,
-        values: [
-          {
+
+        values: {
+          year: {
             name: "年",
             value: "",
             placeholder: "西暦（半角）",
+            error: {
+              type: "text",
+              key: 2,
+              isShow: false,
+              message: "",
+            },
           },
-          {
+          month: {
             name: "月",
             value: "",
             placeholder: "半角",
+            error: {
+              type: "text",
+              key: 2,
+              isShow: false,
+              message: "",
+            },
           },
-          {
+          day: {
             name: "日",
             value: "",
             placeholder: "半角",
+            error: {
+              type: "text",
+              key: 2,
+              isShow: false,
+              message: "",
+            },
           },
-        ],
+        },
       },
     ],
   },
@@ -1642,6 +1758,13 @@ export const form2 = [
         description: "別居を選択すると住所の入力が必須になります",
         key: 1,
         required: true,
+        value: "",
+        error: {
+          type: "radio",
+          key: 2,
+          isShow: false,
+          message: "",
+        },
         options: [
           {
             id: "同居",
@@ -1770,7 +1893,13 @@ export const form2 = [
         placeholder: "選択してください",
         isDifferentBox: false,
         key: 1,
-        value: [],
+        value: "",
+        error: {
+          type: "text",
+          key: 1,
+          isShow: false,
+          message: "",
+        },
         options: [
           {
             name: "職業区分 1",
@@ -1828,7 +1957,13 @@ export const form2 = [
         placeholder: "選択してください",
         isDifferentBox: false,
         key: 1,
-        value: [],
+        value: "",
+        error: {
+          type: "text",
+          key: 1,
+          isShow: false,
+          message: "",
+        },
         options: [
           {
             name: "健康保険扶養区分 1",
@@ -1890,7 +2025,13 @@ export const form2 = [
         isDifferentBox: false,
         required: true,
         key: 1,
-        value: [],
+        value: "",
+        error: {
+          type: "text",
+          key: 1,
+          isShow: false,
+          message: "",
+        },
         options: [
           {
             name: "通勤手段 1",
@@ -1991,6 +2132,13 @@ export const form2 = [
         isDifferentBox: true,
         key: 1,
         required: true,
+        value: "",
+        error: {
+          type: "radio",
+          key: 2,
+          isShow: false,
+          message: "",
+        },
         options: [
           {
             id: "はい",
@@ -2012,6 +2160,13 @@ export const form2 = [
         isDifferentBox: true,
         key: 1,
         required: true,
+        value: "",
+        error: {
+          type: "radio",
+          key: 2,
+          isShow: false,
+          message: "",
+        },
         options: [
           {
             id: "はい",

@@ -3,18 +3,7 @@
         <div v-for="item in form" :key="item.key">
             <div v-if="currentStep == item.key">
                 <div v-for="item in form" :key="item.key">
-                    <InfoBox :infos="item.infos" />
-                    <UploadPhotoBox :photoBoxes="item.photoBoxes" />
-                    <TextInputBox :textInputBoxes="item.textInputBoxes" />
-                    <CheckboxInputBox :checkBoxes="item.checkBoxes" />
-                    <RadioBox :radioBoxes="item.radioBoxes" />
-                    <DateTextBox :dateTextBox="item.dateTextBox" />
-                    <DateSelectBox :dateSelectBoxes="item.dateSelectBoxes" />
-                    <SelectOption :selectOptions="item.selectOptions" />
-                    <SearchAndSelect :searchAndSelect="item.searchAndSelect" />
-                    <ZipCodeBox :zipCodeBox="item.zipCodeBox" />
-                    <NumberInputBox :numberInputBox="item.numberInputBox" />
-                    <!-- <InfoBox :infos="item.infos" v-if="item.infos" />
+                    <InfoBox :infos="item.infos" v-if="item.infos" />
                     <UploadPhotoBox
                         :photoBoxes="item.photoBoxes"
                         v-if="item.photoBoxes"
@@ -54,7 +43,7 @@
                     <NumberInputBox
                         :numberInputBox="item.numberInputBox"
                         v-if="item.numberInputBox"
-                    /> -->
+                    />
                 </div>
             </div>
         </div>

@@ -8,10 +8,12 @@
         >
             <p v-if="radioBox.required" class="required">必須</p>
             {{ radioBox.name }}
+
             <div class="radio-box-container">
                 <div
                     v-for="option in radioBox.options"
                     :key="option.id"
+                    @change="validateThisItem(radioBox)"
                     class="radio-box-item value-box"
                 >
                     <input
@@ -19,9 +21,13 @@
                         :name="radioBox.name"
                         :id="option.id"
                         :value="option.value"
+                        v-model="radioBox.value"
                         :disabled="$store.state.currentStep == 4"
                     />
                     <label :for="option.id">{{ option.value }}</label>
+                    <p v-if="radioBox.error.isShow" class="error">
+                        {{ radioBox.error.message }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -33,6 +39,23 @@ export default {
     name: "RadioBox",
     props: {
         radioBoxes: Array,
+    },
+    methods: {
+        validateThisItem(item) {
+            if (item.required && !item.value) {
+                console.log("not ok");
+                item.error.isShow = true;
+                item.error.message = "invalid input";
+                this.$store.commit("PUSH_TO_ERROR_BAG", item);
+                return;
+            } else if (item.required && item.value) {
+                console.log("ok");
+
+                this.$store.commit("PUSH_TO_ERROR_BAG", item);
+                item.error.isShow = false;
+                item.error.message = "";
+            }
+        },
     },
 };
 </script>
